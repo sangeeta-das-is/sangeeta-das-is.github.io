@@ -20,7 +20,6 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* LANGUAGE POPUP */
 #languagePopup{
 position:fixed;
 top:0;
@@ -66,14 +65,8 @@ cursor:pointer;
 font-weight:bold;
 background:#2563eb;
 color:white;
-transition:.3s;
 }
 
-.popup-box button:hover{
-transform:scale(1.05);
-}
-
-/* NAV */
 nav{
 position:fixed;
 top:0;
@@ -105,14 +98,12 @@ text-decoration:none;
 color:white;
 font-size:18px;
 font-weight:600;
-transition:.3s;
 }
 
 nav ul li a:hover{
 color:#f59e0b;
 }
 
-/* HERO */
 .hero{
 min-height:100vh;
 display:flex;
@@ -156,11 +147,6 @@ text-decoration:none;
 font-size:20px;
 font-weight:bold;
 margin-right:15px;
-transition:.3s;
-}
-
-.buttons a:hover{
-transform:translateY(-3px);
 }
 
 .btn1{
@@ -187,7 +173,6 @@ color:#aaa;
 padding:20px;
 }
 
-/* SECTIONS */
 section{
 padding:120px 50px 70px;
 }
@@ -228,7 +213,6 @@ padding:35px;
 color:#888;
 }
 
-/* MOBILE */
 @media(max-width:1100px){
 
 .hero{
@@ -263,7 +247,6 @@ justify-content:center;
 
 <body>
 
-<!-- LANGUAGE POPUP -->
 <div id="languagePopup">
 <div class="popup-box">
 <h2>Willkommen / Welcome</h2>
@@ -277,7 +260,6 @@ Which language would you like to view the website in?
 </div>
 </div>
 
-<!-- NAV -->
 <nav>
 <div class="logo">Sangeeta</div>
 
@@ -290,7 +272,6 @@ Which language would you like to view the website in?
 </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
 
 <div class="left">
@@ -315,7 +296,6 @@ Dein Foto<br>kommt hier später
 
 </section>
 
-<!-- ABOUT -->
 <section id="about">
 <div class="box">
 <h3 id="aboutTitle">Über mich</h3>
@@ -325,7 +305,6 @@ Aktuell in Umschulung zur Fachinformatikerin für Systemintegration.
 </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
 <div class="box">
 <h3 id="expTitle">Erfahrung</h3>
@@ -335,7 +314,6 @@ Berufserfahrung im Recruiting, Kundenkontakt und HR-Systemen.
 </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
 <div class="box">
 <h3 id="skillTitle">Kenntnisse</h3>
@@ -345,7 +323,6 @@ Windows Server • Active Directory • Microsoft 365 • AWS • Netzwerk
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
 <div class="box">
 <h3 id="projectTitle">Projekte</h3>
@@ -355,7 +332,6 @@ Windows Server Lab • AWS Setup • Netzwerk-Konfiguration
 </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
 <div class="box">
 <h3 id="contactTitle">Kontakt</h3>
@@ -382,7 +358,6 @@ nav5.innerHTML="Contact";
 
 title1.innerHTML="Hi, I'm Sangeeta";
 title2.innerHTML="Aspiring IT Specialist in System Integration_";
-
 desc.innerHTML="Motivated career changer with strong interest in IT infrastructure, cloud technologies and technical support.";
 
 btn1.innerHTML="Get In Touch";
@@ -403,12 +378,12 @@ projectTitle.innerHTML="Projects";
 projectText.innerHTML="Windows Server Lab • AWS Setup • Network Configuration";
 
 contactTitle.innerHTML="Contact";
-contactText.innerHTML="
+contactText.innerHTML = `
 📞 <a href='tel:+4915236734519'>01523-673-4519</a><br><br>
 ✉️ <a href='mailto:sangeeta-das@gmx.de'>sangeeta-das@gmx.de</a><br><br>
 📍 Haselstraße 31, Düsseldorf<br><br>
 🌐 <a href='https://sangeeta-das-is.github.io/Sdas.github.io/' target='_blank'>Open Portfolio</a>
-";
+`;
 
 }else{
 
@@ -420,7 +395,6 @@ nav5.innerHTML="Kontakt";
 
 title1.innerHTML="Hallo, ich bin Sangeeta";
 title2.innerHTML="Angehende Fachinformatikerin für Systemintegration_";
-
 desc.innerHTML="Motivierte Quereinsteigerin mit großem Interesse an IT-Infrastruktur, Cloud-Technologien und technischem Support.";
 
 btn1.innerHTML="Kontakt aufnehmen";
@@ -441,12 +415,12 @@ projectTitle.innerHTML="Projekte";
 projectText.innerHTML="Windows Server Lab • AWS Setup • Netzwerk-Konfiguration";
 
 contactTitle.innerHTML="Kontakt";
-contactText.innerHTML="
+contactText.innerHTML = `
 📞 <a href='tel:+4915236734519'>01523-673-4519</a><br><br>
 ✉️ <a href='mailto:sangeeta-das@gmx.de'>sangeeta-das@gmx.de</a><br><br>
 📍 Haselstraße 31, Düsseldorf<br><br>
 🌐 <a href='https://sangeeta-das-is.github.io/Sdas.github.io/' target='_blank'>Portfolio öffnen</a>
-";
+`;
 }
 }
 </script>
