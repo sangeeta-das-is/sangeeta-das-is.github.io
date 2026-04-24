@@ -16,7 +16,7 @@ scroll-behavior:smooth;
 body{
 font-family:Arial,sans-serif;
 background:#0f172a;
-color:#ffffff;
+color:#fff;
 overflow-x:hidden;
 }
 
@@ -44,7 +44,7 @@ max-width:520px;
 }
 
 .popup-box h2{
-font-size:32px;
+font-size:30px;
 margin-bottom:15px;
 color:#93c5fd;
 }
@@ -74,31 +74,31 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:22px 55px;
+padding:20px 55px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(17,24,39,.75);
+background:rgba(17,24,39,.80);
 backdrop-filter:blur(10px);
 z-index:1000;
 }
 
 .logo{
-font-size:32px;
-font-weight:bold;
+font-size:30px;
+font-weight:700;
 color:#93c5fd;
 }
 
 nav ul{
 display:flex;
 list-style:none;
-gap:30px;
+gap:28px;
 }
 
 nav ul li a{
 text-decoration:none;
 color:white;
-font-size:18px;
+font-size:17px;
 font-weight:600;
 }
 
@@ -112,7 +112,7 @@ min-height:100vh;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:120px 70px 40px;
+padding:130px 70px 40px;
 gap:50px;
 flex-wrap:wrap;
 background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
@@ -123,34 +123,37 @@ max-width:760px;
 }
 
 .left h1{
-font-size:78px;
-line-height:1.05;
+font-size:64px;
+line-height:1.15;
 margin-bottom:18px;
-color:#ffffff;
+font-weight:700;
+white-space:nowrap;
 }
 
 .left h2{
-font-size:38px;
-margin-bottom:25px;
+font-size:32px;
+margin-bottom:22px;
 color:#93c5fd;
 font-family:monospace;
+line-height:1.35;
 }
 
 .left p{
-font-size:24px;
+font-size:22px;
 line-height:1.6;
 color:#d1d5db;
 margin-bottom:35px;
+max-width:720px;
 }
 
 .buttons a{
 display:inline-block;
-padding:18px 35px;
+padding:16px 34px;
 border-radius:40px;
 text-decoration:none;
-font-size:20px;
-font-weight:bold;
-margin-right:15px;
+font-size:19px;
+font-weight:600;
+margin-right:14px;
 }
 
 .btn1{
@@ -163,23 +166,27 @@ border:2px solid #64748b;
 color:white;
 }
 
+.buttons a:hover{
+background:#1e293b;
+}
+
 .photo-placeholder{
-width:460px;
-height:460px;
+width:420px;
+height:420px;
 border-radius:50%;
 border:3px solid #334155;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-font-size:26px;
+font-size:24px;
 color:#94a3b8;
 padding:20px;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
-padding:110px 40px 60px;
+padding:100px 40px 60px;
 }
 
 .box{
@@ -191,19 +198,19 @@ border-radius:18px;
 }
 
 .box h3{
-font-size:38px;
-margin-bottom:20px;
+font-size:34px;
+margin-bottom:18px;
 color:#93c5fd;
 }
 
 .box p{
-font-size:20px;
+font-size:19px;
 line-height:1.6;
 color:#d1d5db;
 }
 
 .box a{
-color:#ffffff;
+color:#fff;
 text-decoration:none;
 }
 
@@ -215,12 +222,12 @@ color:#93c5fd;
 display:flex;
 align-items:center;
 gap:14px;
-margin-bottom:18px;
-font-size:22px;
+margin-bottom:16px;
+font-size:20px;
 }
 
 .icon{
-width:28px;
+width:26px;
 text-align:center;
 color:#93c5fd;
 }
@@ -240,13 +247,17 @@ justify-content:center;
 text-align:center;
 }
 
-.left h1{font-size:52px;}
-.left h2{font-size:28px;}
-.left p{font-size:20px;}
+.left h1{
+font-size:44px;
+white-space:normal;
+}
+
+.left h2{font-size:26px;}
+.left p{font-size:19px;}
 
 .photo-placeholder{
-width:260px;
-height:260px;
+width:250px;
+height:250px;
 font-size:18px;
 }
 
@@ -278,7 +289,6 @@ align-items:flex-start;
 In welcher Sprache möchten Sie die Website ansehen?<br>
 Which language would you like to view the website in?
 </p>
-
 <button onclick="setLanguage('de')">🇩🇪 Deutsch</button>
 <button onclick="setLanguage('en')">🇬🇧 English</button>
 </div>
@@ -286,7 +296,6 @@ Which language would you like to view the website in?
 
 <nav>
 <div class="logo">Sangeeta</div>
-
 <ul>
 <li><a href="#about" id="nav1">Über mich</a></li>
 <li><a href="#experience" id="nav2">Erfahrung</a></li>
@@ -301,10 +310,7 @@ Which language would you like to view the website in?
 <div class="left">
 <h1 id="title1">Hallo, ich bin Sangeeta</h1>
 <h2 id="title2">Angehende Fachinformatikerin für Systemintegration_</h2>
-
-<p id="desc">
-Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.
-</p>
+<p id="desc">Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.</p>
 
 <div class="buttons">
 <a href="#contact" class="btn1" id="btn1">Kontakt aufnehmen</a>
@@ -359,7 +365,6 @@ Dein Foto<br>kommt hier später
 
 <script>
 function setLanguage(lang){
-
 document.getElementById("languagePopup").style.display="none";
 
 if(lang==="en"){
@@ -392,7 +397,7 @@ projectTitle.innerHTML="Projects";
 projectText.innerHTML="Windows Server Lab • AWS Setup • Network Configuration";
 
 contactTitle.innerHTML="Contact";
-contactText.innerHTML = `
+contactText.innerHTML=`
 <div class='contact-item'><span class='icon'>☎</span><a href='tel:+4915236734519'>01523-673-4519</a></div>
 <div class='contact-item'><span class='icon'>✉</span><a href='mailto:sangeeta-das@gmx.de'>sangeeta-das@gmx.de</a></div>
 <div class='contact-item'><span class='icon'>⌂</span>Haselstraße 31, Düsseldorf</div>
@@ -429,7 +434,7 @@ projectTitle.innerHTML="Projekte";
 projectText.innerHTML="Windows Server Lab • AWS Setup • Netzwerk-Konfiguration";
 
 contactTitle.innerHTML="Kontakt";
-contactText.innerHTML = `
+contactText.innerHTML=`
 <div class='contact-item'><span class='icon'>☎</span><a href='tel:+4915236734519'>01523-673-4519</a></div>
 <div class='contact-item'><span class='icon'>✉</span><a href='mailto:sangeeta-das@gmx.de'>sangeeta-das@gmx.de</a></div>
 <div class='contact-item'><span class='icon'>⌂</span>Haselstraße 31, Düsseldorf</div>
