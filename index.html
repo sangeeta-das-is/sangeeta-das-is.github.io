@@ -16,7 +16,7 @@ scroll-behavior:smooth;
 body{
 font-family:Arial,sans-serif;
 background:#0f172a;
-color:#ffffff;
+color:#fff;
 overflow-x:hidden;
 }
 
@@ -37,7 +37,7 @@ z-index:99999;
 .popup-box{
 background:#111827;
 padding:45px;
-border-radius:20px;
+border-radius:22px;
 text-align:center;
 width:90%;
 max-width:520px;
@@ -122,25 +122,20 @@ flex-wrap:wrap;
 background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
 }
 
-.left{
-max-width:720px;
-}
+.left{max-width:720px;}
 
 .left h1{
 font-size:56px;
 line-height:1.15;
 margin-bottom:16px;
 font-weight:700;
-letter-spacing:-1px;
 white-space:nowrap;
 }
 
 .left h2{
 font-size:28px;
-line-height:1.4;
 margin-bottom:20px;
 font-family:monospace;
-font-weight:600;
 color:#93c5fd;
 }
 
@@ -149,7 +144,6 @@ font-size:20px;
 line-height:1.7;
 color:#d1d5db;
 margin-bottom:32px;
-max-width:680px;
 }
 
 .buttons a{
@@ -177,8 +171,8 @@ background:#1e293b;
 }
 
 .photo-placeholder{
-width:400px;
-height:400px;
+width:380px;
+height:380px;
 border-radius:50%;
 border:3px solid #334155;
 display:flex;
@@ -196,14 +190,13 @@ padding:100px 40px 60px;
 }
 
 .box{
-max-width:1100px;
+max-width:1150px;
 margin:auto;
 background:linear-gradient(145deg,#111827,#0f172a);
 padding:40px;
 border-radius:22px;
 border:1px solid rgba(147,197,253,.18);
 box-shadow:0 10px 30px rgba(0,0,0,.35);
-transition:.3s ease;
 position:relative;
 overflow:hidden;
 }
@@ -218,15 +211,9 @@ height:4px;
 background:linear-gradient(90deg,#2563eb,#93c5fd);
 }
 
-.box:hover{
-transform:translateY(-6px);
-box-shadow:0 20px 40px rgba(0,0,0,.45);
-}
-
 .box h3{
 font-size:30px;
-margin-bottom:18px;
-font-weight:700;
+margin-bottom:22px;
 color:#93c5fd;
 }
 
@@ -241,7 +228,6 @@ color:#d1d5db;
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:20px;
-margin-top:25px;
 }
 
 .skill-card{
@@ -249,48 +235,71 @@ background:#0f172a;
 padding:22px;
 border-radius:18px;
 border:1px solid rgba(147,197,253,.18);
-transition:.3s;
-min-height:250px;
-}
-
-.skill-card:hover{
-transform:translateY(-6px);
-box-shadow:0 12px 25px rgba(0,0,0,.35);
+min-height:230px;
 }
 
 .skill-card h4{
-font-size:19px;
-margin-bottom:14px;
+font-size:18px;
+margin-bottom:12px;
 color:#93c5fd;
 }
 
 .skill-card p{
 font-size:15px;
 line-height:1.8;
+}
+
+/* PROJECTS */
+.project-grid{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+.project-card{
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:25px;
+background:#0f172a;
+padding:25px;
+border-radius:18px;
+border:1px solid rgba(147,197,253,.15);
+}
+
+.project-card h4{
+font-size:22px;
+margin-bottom:15px;
+color:#93c5fd;
+}
+
+.project-card p{
+font-size:16px;
+line-height:1.8;
+}
+
+.diagram{
+background:#111827;
+padding:20px;
+border-radius:16px;
+border:1px solid rgba(147,197,253,.15);
+font-family:monospace;
+line-height:1.9;
+color:#d1d5db;
+font-size:15px;
+}
+
+/* CONTACT */
+.contact-item{
+display:flex;
+gap:12px;
+margin-bottom:15px;
+font-size:18px;
 color:#d1d5db;
 }
 
-.box a{
-color:#ffffff;
-text-decoration:none;
-}
-
-.box a:hover{
-color:#93c5fd;
-}
-
-.contact-item{
-display:flex;
-align-items:center;
-gap:14px;
-margin-bottom:14px;
-font-size:18px;
-}
-
 .icon{
-width:26px;
-text-align:center;
 color:#93c5fd;
+width:22px;
 }
 
 footer{
@@ -299,22 +308,18 @@ padding:35px;
 color:#94a3b8;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media(max-width:1100px){
 
 nav{
-left:10px;
-right:10px;
-top:10px;
-padding:16px;
 flex-direction:column;
 gap:15px;
+padding:16px;
 }
 
 nav ul{
 flex-wrap:wrap;
 justify-content:center;
-gap:16px;
 }
 
 .hero{
@@ -326,31 +331,24 @@ text-align:center;
 .left h1{
 font-size:42px;
 white-space:normal;
-line-height:1.2;
 }
 
 .left h2{
 font-size:24px;
 }
 
-.left p{
-font-size:18px;
-}
-
-.buttons a{
-font-size:17px;
-padding:14px 24px;
-margin-bottom:10px;
-}
-
 .photo-placeholder{
-width:250px;
-height:250px;
+width:240px;
+height:240px;
 font-size:18px;
 }
 
 .skills-grid{
 grid-template-columns:repeat(2,1fr);
+}
+
+.project-card{
+grid-template-columns:1fr;
 }
 }
 
@@ -364,6 +362,7 @@ grid-template-columns:1fr;
 
 <body>
 
+<!-- LANGUAGE POPUP -->
 <div id="languagePopup">
 <div class="popup-box">
 <h2>Willkommen / Welcome</h2>
@@ -376,117 +375,148 @@ Which language would you like to view the website in?
 </div>
 </div>
 
+<!-- NAV -->
 <nav>
 <div class="logo">Sangeeta</div>
 <ul>
-<li><a href="#about">Über mich</a></li>
-<li><a href="#experience">Erfahrung</a></li>
-<li><a href="#skills">Kenntnisse</a></li>
-<li><a href="#projects">Projekte</a></li>
-<li><a href="#contact">Kontakt</a></li>
+<li><a href="#about" id="nav1">Über mich</a></li>
+<li><a href="#experience" id="nav2">Erfahrung</a></li>
+<li><a href="#skills" id="nav3">Kenntnisse</a></li>
+<li><a href="#projects" id="nav4">Projekte</a></li>
+<li><a href="#contact" id="nav5">Kontakt</a></li>
 </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 <div class="left">
-<h1>Hallo, ich bin Sangeeta</h1>
-<h2>Angehende Fachinformatikerin für Systemintegration_</h2>
-<p>Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.</p>
+<h1 id="title1">Hallo, ich bin Sangeeta</h1>
+<h2 id="title2">Angehende Fachinformatikerin für Systemintegration_</h2>
+<p id="desc">Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.</p>
 
 <div class="buttons">
-<a href="#contact" class="btn1">Kontakt aufnehmen</a>
-<a href="#projects" class="btn2">Projekte ansehen</a>
+<a href="#contact" class="btn1" id="btn1">Kontakt aufnehmen</a>
+<a href="#projects" class="btn2" id="btn2">Projekte ansehen</a>
 </div>
 </div>
 
 <div class="right">
-<div class="photo-placeholder">
+<div class="photo-placeholder" id="photoText">
 Dein Foto<br>kommt hier später
 </div>
 </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
 <div class="box">
-<h3>Über mich</h3>
-<p>
+<h3 id="aboutTitle">Über mich</h3>
+<p id="aboutText">
 Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.
 </p>
 </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience">
 <div class="box">
-<h3>Erfahrung</h3>
-<p>Berufserfahrung im Recruiting, Kundenkontakt und HR-Systemen.</p>
+<h3 id="expTitle">Erfahrung</h3>
+<p id="expText">Berufserfahrung im Recruiting, Kundenkontakt und HR-Systemen.</p>
 </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
 <div class="box">
-<h3>Kenntnisse</h3>
+<h3 id="skillTitle">Kenntnisse</h3>
 
 <div class="skills-grid">
 
 <div class="skill-card">
-<h4>💻 Systemintegration</h4>
-<p>
-Windows Server<br>
-Active Directory<br>
-Benutzerverwaltung<br>
-IT Support
-</p>
+<h4 id="s1">💻 Systemintegration</h4>
+<p id="sp1">Windows Server<br>Active Directory<br>Benutzerverwaltung<br>IT Support</p>
 </div>
 
 <div class="skill-card">
-<h4>🌐 Netzwerk</h4>
-<p>
-TCP/IP<br>
-DNS<br>
-DHCP<br>
-VPN
-</p>
+<h4 id="s2">🌐 Netzwerk</h4>
+<p id="sp2">TCP/IP<br>DNS<br>DHCP<br>VPN</p>
 </div>
 
 <div class="skill-card">
-<h4>☁️ Cloud & Microsoft</h4>
-<p>
-Microsoft 365<br>
-Azure Basics<br>
-AWS Basics<br>
-Exchange Online
-</p>
+<h4 id="s3">☁️ Cloud & Microsoft</h4>
+<p id="sp3">Microsoft 365<br>Azure Basics<br>AWS Basics<br>Exchange Online</p>
 </div>
 
 <div class="skill-card">
-<h4>🧑‍💼 Business & HR</h4>
-<p>
-Workday<br>
-Prozessoptimierung<br>
-Reporting<br>
-Stakeholder Management
-</p>
+<h4 id="s4">🧑‍💼 Business & HR</h4>
+<p id="sp4">Workday<br>Prozessoptimierung<br>Reporting<br>Stakeholder Management</p>
 </div>
 
 </div>
 </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
 <div class="box">
-<h3>Projekte</h3>
-<p>Windows Server Lab • AWS Setup • Netzwerk-Konfiguration</p>
+<h3 id="projectTitle">Projekte</h3>
+
+<div class="project-grid">
+
+<div class="project-card">
+<div>
+<h4 id="p1t">🔐 OpenVPN Konfiguration</h4>
+<p id="p1d">
+• OpenVPN auf Linux VM eingerichtet<br>
+• Verbindung zwischen Linux VM und Host-System aufgebaut<br>
+• Routing geprüft<br>
+• Verbindung getestet
+</p>
+</div>
+
+<div class="diagram" id="dia1">
+[ Windows Host ]<br>
+│<br>
+VPN Tunnel<br>
+│<br>
+[ Linux VM ]<br>
+OpenVPN Server
+</div>
+</div>
+
+<div class="project-card">
+<div>
+<h4 id="p2t">🛡️ Firewall Regelkonfiguration</h4>
+<p id="p2d">
+• Webseitenzugriff eingeschränkt<br>
+• HTTP erlaubt / andere blockiert<br>
+• Firewall Regeln erstellt<br>
+• Windows Client getestet
+</p>
+</div>
+
+<div class="diagram" id="dia2">
+[ Windows Client ]<br>
+│<br>
+Firewall Regeln<br>
+├ HTTP erlaubt<br>
+├ HTTPS blockiert<br>
+└ Zugriff kontrolliert
+</div>
+</div>
+
+</div>
 </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
 <div class="box">
-<h3>Kontakt</h3>
+<h3 id="contactTitle">Kontakt</h3>
 
-<div class="contact-item"><span class="icon">☎</span> 01523-673-4519</div>
-<div class="contact-item"><span class="icon">✉</span> sangeeta-das@gmx.de</div>
-<div class="contact-item"><span class="icon">⌂</span> Düsseldorf</div>
-<div class="contact-item"><span class="icon">🌐</span> Portfolio Website</div>
+<div class="contact-item"><span class="icon">☎</span><span id="c1">01523-6734519</span></div>
+<div class="contact-item"><span class="icon">✉</span><span id="c2">sangeeta-das@gmx.de</span></div>
+<div class="contact-item"><span class="icon">⌂</span><span id="c3">Düsseldorf</span></div>
 
 </div>
 </section>
@@ -495,7 +525,111 @@ Stakeholder Management
 
 <script>
 function setLanguage(lang){
+
 document.getElementById("languagePopup").style.display="none";
+
+if(lang==="en"){
+
+nav1.innerHTML="About";
+nav2.innerHTML="Experience";
+nav3.innerHTML="Skills";
+nav4.innerHTML="Projects";
+nav5.innerHTML="Contact";
+
+title1.innerHTML="Hi, I'm Sangeeta";
+title2.innerHTML="Aspiring IT Specialist in System Integration_";
+desc.innerHTML="Committed, reliable and motivated for continuous growth.";
+
+btn1.innerHTML="Get In Touch";
+btn2.innerHTML="View Projects";
+
+photoText.innerHTML="Your Photo<br>Coming Soon";
+
+aboutTitle.innerHTML="About";
+aboutText.innerHTML="Currently retraining as an IT Specialist in System Integration. In addition, I bring more than 8 years of HR experience, especially in process optimization and Workday. I now aim to apply my experience in the IT field.";
+
+expTitle.innerHTML="Experience";
+expText.innerHTML="Professional experience in recruiting, customer communication and HR systems.";
+
+skillTitle.innerHTML="Skills";
+
+s1.innerHTML="💻 System Integration";
+sp1.innerHTML="Windows Server<br>Active Directory<br>User Management<br>IT Support";
+
+s2.innerHTML="🌐 Networking";
+sp2.innerHTML="TCP/IP<br>DNS<br>DHCP<br>VPN";
+
+s3.innerHTML="☁️ Cloud & Microsoft";
+sp3.innerHTML="Microsoft 365<br>Azure Basics<br>AWS Basics<br>Exchange Online";
+
+s4.innerHTML="🧑‍💼 Business & HR";
+sp4.innerHTML="Workday<br>Process Optimization<br>Reporting<br>Stakeholder Management";
+
+projectTitle.innerHTML="Projects";
+
+p1t.innerHTML="🔐 OpenVPN Configuration";
+p1d.innerHTML="• OpenVPN installed on Linux VM<br>• Connection established between VM and host<br>• Routing checked<br>• Connection tested";
+
+dia1.innerHTML="[ Windows Host ]<br>│<br>VPN Tunnel<br>│<br>[ Linux VM ]<br>OpenVPN Server";
+
+p2t.innerHTML="🛡️ Firewall Rule Configuration";
+p2d.innerHTML="• Website access restricted<br>• HTTP allowed / others blocked<br>• Firewall rules created<br>• Windows client tested";
+
+dia2.innerHTML="[ Windows Client ]<br>│<br>Firewall Rules<br>├ HTTP allowed<br>├ HTTPS blocked<br>└ Controlled Access";
+
+contactTitle.innerHTML="Contact";
+
+}else{
+
+nav1.innerHTML="Über mich";
+nav2.innerHTML="Erfahrung";
+nav3.innerHTML="Kenntnisse";
+nav4.innerHTML="Projekte";
+nav5.innerHTML="Kontakt";
+
+title1.innerHTML="Hallo, ich bin Sangeeta";
+title2.innerHTML="Angehende Fachinformatikerin für Systemintegration_";
+desc.innerHTML="Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.";
+
+btn1.innerHTML="Kontakt aufnehmen";
+btn2.innerHTML="Projekte ansehen";
+
+photoText.innerHTML="Dein Foto<br>kommt hier später";
+
+aboutTitle.innerHTML="Über mich";
+aboutText.innerHTML="Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.";
+
+expTitle.innerHTML="Erfahrung";
+expText.innerHTML="Berufserfahrung im Recruiting, Kundenkontakt und HR-Systemen.";
+
+skillTitle.innerHTML="Kenntnisse";
+
+s1.innerHTML="💻 Systemintegration";
+sp1.innerHTML="Windows Server<br>Active Directory<br>Benutzerverwaltung<br>IT Support";
+
+s2.innerHTML="🌐 Netzwerk";
+sp2.innerHTML="TCP/IP<br>DNS<br>DHCP<br>VPN";
+
+s3.innerHTML="☁️ Cloud & Microsoft";
+sp3.innerHTML="Microsoft 365<br>Azure Basics<br>AWS Basics<br>Exchange Online";
+
+s4.innerHTML="🧑‍💼 Business & HR";
+sp4.innerHTML="Workday<br>Prozessoptimierung<br>Reporting<br>Stakeholder Management";
+
+projectTitle.innerHTML="Projekte";
+
+p1t.innerHTML="🔐 OpenVPN Konfiguration";
+p1d.innerHTML="• OpenVPN auf Linux VM eingerichtet<br>• Verbindung zwischen Linux VM und Host-System aufgebaut<br>• Routing geprüft<br>• Verbindung getestet";
+
+dia1.innerHTML="[ Windows Host ]<br>│<br>VPN Tunnel<br>│<br>[ Linux VM ]<br>OpenVPN Server";
+
+p2t.innerHTML="🛡️ Firewall Regelkonfiguration";
+p2d.innerHTML="• Webseitenzugriff eingeschränkt<br>• HTTP erlaubt / andere blockiert<br>• Firewall Regeln erstellt<br>• Windows Client getestet";
+
+dia2.innerHTML="[ Windows Client ]<br>│<br>Firewall Regeln<br>├ HTTP erlaubt<br>├ HTTPS blockiert<br>└ Zugriff kontrolliert";
+
+contactTitle.innerHTML="Kontakt";
+}
 }
 </script>
 
