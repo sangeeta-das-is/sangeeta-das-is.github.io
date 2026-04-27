@@ -42,7 +42,6 @@ text-align:center;
 width:90%;
 max-width:520px;
 border:1px solid rgba(147,197,253,.18);
-box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
 .popup-box h2{
@@ -97,6 +96,7 @@ nav ul{
 display:flex;
 list-style:none;
 gap:28px;
+flex-wrap:wrap;
 }
 
 nav ul li a{
@@ -104,10 +104,6 @@ text-decoration:none;
 color:white;
 font-size:17px;
 font-weight:600;
-}
-
-nav ul li a:hover{
-color:#93c5fd;
 }
 
 /* HERO */
@@ -126,9 +122,7 @@ background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
 
 .left h1{
 font-size:56px;
-line-height:1.15;
 margin-bottom:16px;
-font-weight:700;
 white-space:nowrap;
 }
 
@@ -156,23 +150,12 @@ font-weight:600;
 margin-right:14px;
 }
 
-.btn1{
-border:2px solid #2563eb;
-color:white;
-}
-
-.btn2{
-border:2px solid #64748b;
-color:white;
-}
-
-.buttons a:hover{
-background:#1e293b;
-}
+.btn1{border:2px solid #2563eb;color:white;}
+.btn2{border:2px solid #64748b;color:white;}
 
 .photo-placeholder{
-width:380px;
-height:380px;
+width:360px;
+height:360px;
 border-radius:50%;
 border:3px solid #334155;
 display:flex;
@@ -181,7 +164,6 @@ align-items:center;
 text-align:center;
 font-size:22px;
 color:#94a3b8;
-padding:20px;
 }
 
 /* SECTION */
@@ -196,9 +178,7 @@ background:linear-gradient(145deg,#111827,#0f172a);
 padding:40px;
 border-radius:22px;
 border:1px solid rgba(147,197,253,.18);
-box-shadow:0 10px 30px rgba(0,0,0,.35);
 position:relative;
-overflow:hidden;
 }
 
 .box::before{
@@ -209,11 +189,12 @@ left:0;
 width:100%;
 height:4px;
 background:linear-gradient(90deg,#2563eb,#93c5fd);
+border-radius:22px 22px 0 0;
 }
 
 .box h3{
 font-size:30px;
-margin-bottom:22px;
+margin-bottom:20px;
 color:#93c5fd;
 }
 
@@ -235,7 +216,6 @@ background:#0f172a;
 padding:22px;
 border-radius:18px;
 border:1px solid rgba(147,197,253,.18);
-min-height:230px;
 }
 
 .skill-card h4{
@@ -250,25 +230,32 @@ line-height:1.8;
 }
 
 /* PROJECTS */
+.project-intro{
+margin-bottom:28px;
+color:#cbd5e1;
+font-size:17px;
+line-height:1.8;
+}
+
 .project-grid{
 display:flex;
 flex-direction:column;
-gap:25px;
+gap:24px;
 }
 
 .project-card{
 display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:25px;
+grid-template-columns:1.1fr .9fr;
+gap:24px;
 background:#0f172a;
-padding:25px;
+padding:24px;
 border-radius:18px;
 border:1px solid rgba(147,197,253,.15);
 }
 
 .project-card h4{
 font-size:22px;
-margin-bottom:15px;
+margin-bottom:14px;
 color:#93c5fd;
 }
 
@@ -279,13 +266,67 @@ line-height:1.8;
 
 .diagram{
 background:#111827;
+padding:22px;
+border-radius:18px;
+border:1px solid rgba(147,197,253,.15);
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+
+.node{
+background:#1e293b;
+padding:10px 16px;
+border-radius:12px;
+width:100%;
+text-align:center;
+font-weight:600;
+}
+
+.arrow{
+font-size:22px;
+color:#93c5fd;
+}
+
+.vpn-box,.firewall-box{
+background:#2563eb;
+padding:10px 16px;
+border-radius:12px;
+width:100%;
+text-align:center;
+font-weight:600;
+}
+
+.rule-list{
+width:100%;
+background:#0f172a;
+padding:12px;
+border-radius:12px;
+font-size:14px;
+line-height:1.8;
+}
+
+.small-note{
+font-size:14px;
+color:#cbd5e1;
+}
+
+/* HOBBIES */
+.hobby-list{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.hobby-item{
+background:#0f172a;
 padding:20px;
 border-radius:16px;
+text-align:center;
 border:1px solid rgba(147,197,253,.15);
-font-family:monospace;
-line-height:1.9;
+font-size:16px;
 color:#d1d5db;
-font-size:15px;
 }
 
 /* CONTACT */
@@ -313,12 +354,11 @@ color:#94a3b8;
 
 nav{
 flex-direction:column;
-gap:15px;
+gap:14px;
 padding:16px;
 }
 
 nav ul{
-flex-wrap:wrap;
 justify-content:center;
 }
 
@@ -338,12 +378,13 @@ font-size:24px;
 }
 
 .photo-placeholder{
-width:240px;
-height:240px;
+width:230px;
+height:230px;
 font-size:18px;
 }
 
-.skills-grid{
+.skills-grid,
+.hobby-list{
 grid-template-columns:repeat(2,1fr);
 }
 
@@ -353,7 +394,8 @@ grid-template-columns:1fr;
 }
 
 @media(max-width:700px){
-.skills-grid{
+.skills-grid,
+.hobby-list{
 grid-template-columns:1fr;
 }
 }
@@ -362,7 +404,7 @@ grid-template-columns:1fr;
 
 <body>
 
-<!-- LANGUAGE POPUP -->
+<!-- POPUP -->
 <div id="languagePopup">
 <div class="popup-box">
 <h2>Willkommen / Welcome</h2>
@@ -380,9 +422,9 @@ Which language would you like to view the website in?
 <div class="logo">Sangeeta</div>
 <ul>
 <li><a href="#about" id="nav1">Über mich</a></li>
-<li><a href="#experience" id="nav2">Erfahrung</a></li>
-<li><a href="#skills" id="nav3">Kenntnisse</a></li>
-<li><a href="#projects" id="nav4">Projekte</a></li>
+<li><a href="#skills" id="nav2">Kenntnisse</a></li>
+<li><a href="#projects" id="nav3">Projekte</a></li>
+<li><a href="#hobbies" id="nav4">Hobbys</a></li>
 <li><a href="#contact" id="nav5">Kontakt</a></li>
 </ul>
 </nav>
@@ -417,42 +459,18 @@ Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegra
 </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-<div class="box">
-<h3 id="expTitle">Erfahrung</h3>
-<p id="expText">Berufserfahrung im Recruiting, Kundenkontakt und HR-Systemen.</p>
-</div>
-</section>
-
 <!-- SKILLS -->
 <section id="skills">
 <div class="box">
 <h3 id="skillTitle">Kenntnisse</h3>
 
 <div class="skills-grid">
-
-<div class="skill-card">
-<h4 id="s1">💻 Systemintegration</h4>
-<p id="sp1">Windows Server<br>Active Directory<br>Benutzerverwaltung<br>IT Support</p>
+<div class="skill-card"><h4>💻 Systemintegration</h4><p>Windows Server<br>Active Directory<br>Benutzerverwaltung<br>IT Support</p></div>
+<div class="skill-card"><h4>🌐 Netzwerk</h4><p>TCP/IP<br>DNS<br>DHCP<br>VPN</p></div>
+<div class="skill-card"><h4>☁️ Cloud & Microsoft</h4><p>Microsoft 365<br>Azure Basics<br>AWS Basics<br>Exchange Online</p></div>
+<div class="skill-card"><h4>🧑‍💼 Business & HR</h4><p>Workday<br>Prozessoptimierung<br>Reporting<br>Stakeholder Management</p></div>
 </div>
 
-<div class="skill-card">
-<h4 id="s2">🌐 Netzwerk</h4>
-<p id="sp2">TCP/IP<br>DNS<br>DHCP<br>VPN</p>
-</div>
-
-<div class="skill-card">
-<h4 id="s3">☁️ Cloud & Microsoft</h4>
-<p id="sp3">Microsoft 365<br>Azure Basics<br>AWS Basics<br>Exchange Online</p>
-</div>
-
-<div class="skill-card">
-<h4 id="s4">🧑‍💼 Business & HR</h4>
-<p id="sp4">Workday<br>Prozessoptimierung<br>Reporting<br>Stakeholder Management</p>
-</div>
-
-</div>
 </div>
 </section>
 
@@ -460,6 +478,10 @@ Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegra
 <section id="projects">
 <div class="box">
 <h3 id="projectTitle">Projekte</h3>
+
+<p class="project-intro" id="projectIntro">
+Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und dokumentiert, um praktische Erfahrungen zu vertiefen.
+</p>
 
 <div class="project-grid">
 
@@ -474,19 +496,19 @@ Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegra
 </p>
 </div>
 
-<div class="diagram" id="dia1">
-[ Windows Host ]<br>
-│<br>
-VPN Tunnel<br>
-│<br>
-[ Linux VM ]<br>
-OpenVPN Server
+<div class="diagram">
+<div class="node">🖥 Windows Host</div>
+<div class="arrow">⬇</div>
+<div class="vpn-box">🔐 VPN Tunnel</div>
+<div class="arrow">⬇</div>
+<div class="node">🐧 Linux VM</div>
+<div class="small-note">OpenVPN Server</div>
 </div>
 </div>
 
 <div class="project-card">
 <div>
-<h4 id="p2t">🛡️ Firewall Regelkonfiguration</h4>
+<h4 id="p2t">🛡 Firewall Regelkonfiguration</h4>
 <p id="p2d">
 • Webseitenzugriff eingeschränkt<br>
 • HTTP erlaubt / andere blockiert<br>
@@ -495,17 +517,36 @@ OpenVPN Server
 </p>
 </div>
 
-<div class="diagram" id="dia2">
-[ Windows Client ]<br>
-│<br>
-Firewall Regeln<br>
-├ HTTP erlaubt<br>
-├ HTTPS blockiert<br>
-└ Zugriff kontrolliert
+<div class="diagram">
+<div class="node">💻 Windows Client</div>
+<div class="arrow">⬇</div>
+<div class="firewall-box">🛡 Firewall</div>
+<div class="rule-list">
+<div>✔ HTTP erlaubt</div>
+<div>✖ HTTPS blockiert</div>
+<div>✔ Zugriff kontrolliert</div>
+</div>
+<div class="arrow">⬇</div>
+<div class="node">🌐 Internet</div>
 </div>
 </div>
 
 </div>
+</div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+<div class="box">
+<h3 id="hobbyTitle">Hobbys</h3>
+
+<div class="hobby-list">
+<div class="hobby-item" id="h1">📚 Lernen neuer Technologien</div>
+<div class="hobby-item" id="h2">💪 Fitness</div>
+<div class="hobby-item" id="h3">✈ Reisen</div>
+<div class="hobby-item" id="h4">🎵 Musik</div>
+</div>
+
 </div>
 </section>
 
@@ -514,9 +555,9 @@ Firewall Regeln<br>
 <div class="box">
 <h3 id="contactTitle">Kontakt</h3>
 
-<div class="contact-item"><span class="icon">☎</span><span id="c1">01523-6734519</span></div>
-<div class="contact-item"><span class="icon">✉</span><span id="c2">sangeeta-das@gmx.de</span></div>
-<div class="contact-item"><span class="icon">⌂</span><span id="c3">Düsseldorf</span></div>
+<div class="contact-item"><span class="icon">☎</span>01523-6734519</div>
+<div class="contact-item"><span class="icon">✉</span>sangeeta-das@gmx.de</div>
+<div class="contact-item"><span class="icon">⌂</span>Düsseldorf</div>
 
 </div>
 </section>
@@ -531,9 +572,9 @@ document.getElementById("languagePopup").style.display="none";
 if(lang==="en"){
 
 nav1.innerHTML="About";
-nav2.innerHTML="Experience";
-nav3.innerHTML="Skills";
-nav4.innerHTML="Projects";
+nav2.innerHTML="Skills";
+nav3.innerHTML="Projects";
+nav4.innerHTML="Hobbies";
 nav5.innerHTML="Contact";
 
 title1.innerHTML="Hi, I'm Sangeeta";
@@ -548,43 +589,31 @@ photoText.innerHTML="Your Photo<br>Coming Soon";
 aboutTitle.innerHTML="About";
 aboutText.innerHTML="Currently retraining as an IT Specialist in System Integration. In addition, I bring more than 8 years of HR experience, especially in process optimization and Workday. I now aim to apply my experience in the IT field.";
 
-expTitle.innerHTML="Experience";
-expText.innerHTML="Professional experience in recruiting, customer communication and HR systems.";
-
 skillTitle.innerHTML="Skills";
 
-s1.innerHTML="💻 System Integration";
-sp1.innerHTML="Windows Server<br>Active Directory<br>User Management<br>IT Support";
-
-s2.innerHTML="🌐 Networking";
-sp2.innerHTML="TCP/IP<br>DNS<br>DHCP<br>VPN";
-
-s3.innerHTML="☁️ Cloud & Microsoft";
-sp3.innerHTML="Microsoft 365<br>Azure Basics<br>AWS Basics<br>Exchange Online";
-
-s4.innerHTML="🧑‍💼 Business & HR";
-sp4.innerHTML="Workday<br>Process Optimization<br>Reporting<br>Stakeholder Management";
-
 projectTitle.innerHTML="Projects";
+projectIntro.innerHTML="The projects below were independently planned, implemented and documented to deepen my practical experience.";
 
 p1t.innerHTML="🔐 OpenVPN Configuration";
-p1d.innerHTML="• OpenVPN installed on Linux VM<br>• Connection established between VM and host<br>• Routing checked<br>• Connection tested";
+p1d.innerHTML="• OpenVPN installed on Linux VM<br>• Connection established between Linux VM and Host system<br>• Routing checked<br>• Connection tested";
 
-dia1.innerHTML="[ Windows Host ]<br>│<br>VPN Tunnel<br>│<br>[ Linux VM ]<br>OpenVPN Server";
-
-p2t.innerHTML="🛡️ Firewall Rule Configuration";
+p2t.innerHTML="🛡 Firewall Rule Configuration";
 p2d.innerHTML="• Website access restricted<br>• HTTP allowed / others blocked<br>• Firewall rules created<br>• Windows client tested";
 
-dia2.innerHTML="[ Windows Client ]<br>│<br>Firewall Rules<br>├ HTTP allowed<br>├ HTTPS blocked<br>└ Controlled Access";
+hobbyTitle.innerHTML="Hobbies";
+h1.innerHTML="📚 Learning new technologies";
+h2.innerHTML="💪 Fitness";
+h3.innerHTML="✈ Traveling";
+h4.innerHTML="🎵 Music";
 
 contactTitle.innerHTML="Contact";
 
 }else{
 
 nav1.innerHTML="Über mich";
-nav2.innerHTML="Erfahrung";
-nav3.innerHTML="Kenntnisse";
-nav4.innerHTML="Projekte";
+nav2.innerHTML="Kenntnisse";
+nav3.innerHTML="Projekte";
+nav4.innerHTML="Hobbys";
 nav5.innerHTML="Kontakt";
 
 title1.innerHTML="Hallo, ich bin Sangeeta";
@@ -599,34 +628,22 @@ photoText.innerHTML="Dein Foto<br>kommt hier später";
 aboutTitle.innerHTML="Über mich";
 aboutText.innerHTML="Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.";
 
-expTitle.innerHTML="Erfahrung";
-expText.innerHTML="Berufserfahrung im Recruiting, Kundenkontakt und HR-Systemen.";
-
 skillTitle.innerHTML="Kenntnisse";
 
-s1.innerHTML="💻 Systemintegration";
-sp1.innerHTML="Windows Server<br>Active Directory<br>Benutzerverwaltung<br>IT Support";
-
-s2.innerHTML="🌐 Netzwerk";
-sp2.innerHTML="TCP/IP<br>DNS<br>DHCP<br>VPN";
-
-s3.innerHTML="☁️ Cloud & Microsoft";
-sp3.innerHTML="Microsoft 365<br>Azure Basics<br>AWS Basics<br>Exchange Online";
-
-s4.innerHTML="🧑‍💼 Business & HR";
-sp4.innerHTML="Workday<br>Prozessoptimierung<br>Reporting<br>Stakeholder Management";
-
 projectTitle.innerHTML="Projekte";
+projectIntro.innerHTML="Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und dokumentiert, um praktische Erfahrungen zu vertiefen.";
 
 p1t.innerHTML="🔐 OpenVPN Konfiguration";
 p1d.innerHTML="• OpenVPN auf Linux VM eingerichtet<br>• Verbindung zwischen Linux VM und Host-System aufgebaut<br>• Routing geprüft<br>• Verbindung getestet";
 
-dia1.innerHTML="[ Windows Host ]<br>│<br>VPN Tunnel<br>│<br>[ Linux VM ]<br>OpenVPN Server";
-
-p2t.innerHTML="🛡️ Firewall Regelkonfiguration";
+p2t.innerHTML="🛡 Firewall Regelkonfiguration";
 p2d.innerHTML="• Webseitenzugriff eingeschränkt<br>• HTTP erlaubt / andere blockiert<br>• Firewall Regeln erstellt<br>• Windows Client getestet";
 
-dia2.innerHTML="[ Windows Client ]<br>│<br>Firewall Regeln<br>├ HTTP erlaubt<br>├ HTTPS blockiert<br>└ Zugriff kontrolliert";
+hobbyTitle.innerHTML="Hobbys";
+h1.innerHTML="📚 Lernen neuer Technologien";
+h2.innerHTML="💪 Fitness";
+h3.innerHTML="✈ Reisen";
+h4.innerHTML="🎵 Musik";
 
 contactTitle.innerHTML="Kontakt";
 }
