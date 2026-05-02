@@ -1,499 +1,189 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sangeeta Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sangeeta Portfolio</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-body{font-family:Arial,sans-serif;background:#0f172a;color:#fff;overflow-x:hidden;}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      color: white;
+    }
 
-/* POPUP */
-#languagePopup{
-position:fixed;top:0;left:0;width:100%;height:100%;
-background:rgba(15,23,42,.96);
-display:flex;justify-content:center;align-items:center;z-index:99999;
-}
-.popup-box{
-background:#111827;padding:45px;border-radius:22px;text-align:center;
-width:90%;max-width:520px;border:1px solid rgba(147,197,253,.18);
-}
-.popup-box h2{font-size:30px;margin-bottom:15px;color:#93c5fd;}
-.popup-box p{font-size:18px;line-height:1.7;margin-bottom:28px;color:#d1d5db;}
-.popup-box button{
-padding:14px 28px;margin:10px;font-size:18px;border:none;border-radius:35px;
-cursor:pointer;font-weight:600;background:#2563eb;color:white;
-}
+    /* 🌍 Language switch */
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
 
-/* NAV */
-nav{
-position:fixed;top:16px;left:18px;right:18px;
-padding:18px 35px;display:flex;justify-content:space-between;align-items:center;
-background:rgba(17,24,39,.72);backdrop-filter:blur(12px);
-border:1px solid rgba(148,163,184,.25);border-radius:24px;z-index:1000;
-}
-.logo{font-size:28px;font-weight:700;color:#93c5fd;}
-nav ul{display:flex;list-style:none;gap:28px;flex-wrap:wrap;}
-nav ul li a{text-decoration:none;color:white;font-size:17px;font-weight:600;}
+    button {
+      cursor: pointer;
+    }
 
-/* HERO */
-.hero{
-min-height:100vh;display:flex;justify-content:space-between;align-items:center;
-padding:150px 70px 40px;gap:50px;flex-wrap:wrap;
-background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
-}
-.left{max-width:720px;}
-.left h1{font-size:56px;margin-bottom:16px;white-space:nowrap;}
-.left h2{font-size:28px;margin-bottom:20px;font-family:monospace;color:#93c5fd;}
-.left p{font-size:20px;line-height:1.7;color:#d1d5db;margin-bottom:32px;}
+    /* 🎯 HERO SECTION */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px;
+    }
 
-.buttons a{
-display:inline-block;padding:15px 30px;border-radius:40px;text-decoration:none;
-font-size:18px;font-weight:600;margin-right:14px;
-}
-.btn1{border:2px solid #2563eb;color:white;}
-.btn2{border:2px solid #64748b;color:white;}
+    .hero-text {
+      width: 60%;
+    }
 
-.photo-placeholder{
-width:360px;height:360px;border-radius:50%;border:3px solid #334155;
-display:flex;justify-content:center;align-items:center;text-align:center;
-font-size:22px;color:#94a3b8;
-}
+    .hero-img img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #4da3ff;
+    }
 
-/* SECTION */
-section{padding:100px 40px 60px;}
+    /* ✨ Blinking cursor */
+    .blink {
+      animation: blink 1s infinite;
+    }
 
-.box{
-max-width:1150px;margin:auto;
-background:linear-gradient(145deg,#111827,#0f172a);
-padding:40px;border-radius:22px;
-border:1px solid rgba(147,197,253,.18);
-position:relative;
-}
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
 
-.box::before{
-content:"";position:absolute;top:0;left:0;width:100%;height:4px;
-background:linear-gradient(90deg,#2563eb,#93c5fd);
-border-radius:22px 22px 0 0;
-}
+    /* 🔘 Buttons */
+    .btn {
+      border: 2px solid #4da3ff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      color: white;
+      background: transparent;
+      margin-right: 10px;
+    }
 
-.box h3{font-size:30px;margin-bottom:20px;color:#93c5fd;}
-.box p{font-size:18px;line-height:1.8;color:#d1d5db;}
+    .btn-primary {
+      background: #4da3ff;
+    }
 
-/* SKILLS */
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-}
+    /* 💻 Skills */
+    .skills {
+      display: flex;
+      gap: 40px;
+      padding: 40px 60px;
+    }
 
-.skill-card{
-background:#0f172a;
-padding:22px;
-border-radius:18px;
-border:1px solid rgba(147,197,253,.18);
-}
+    .skills div {
+      width: 50%;
+    }
 
-.skill-card h4{
-font-size:18px;
-margin-bottom:12px;
-color:#93c5fd;
-}
+    /* 📞 Kontakt */
+    .kontakt {
+      padding: 40px 60px;
+    }
 
-.skill-card p{
-font-size:15px;
-line-height:1.8;
-}
+    a {
+      color: #4da3ff;
+    }
 
-/* PROJECTS */
-.project-intro{
-margin-bottom:28px;
-color:#cbd5e1;
-font-size:17px;
-line-height:1.8;
-}
-
-.project-grid{
-display:flex;
-flex-direction:column;
-gap:24px;
-}
-
-.project-card{
-display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:24px;
-background:#0f172a;
-padding:24px;
-border-radius:18px;
-border:1px solid rgba(147,197,253,.15);
-}
-
-.project-card h4{
-font-size:22px;
-margin-bottom:14px;
-color:#93c5fd;
-}
-
-.project-card p{
-font-size:16px;
-line-height:1.8;
-}
-
-.diagram{
-background:#111827;
-padding:22px;
-border-radius:18px;
-border:1px solid rgba(147,197,253,.15);
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:12px;
-}
-
-.node{
-background:#1e293b;
-padding:10px 16px;
-border-radius:12px;
-width:100%;
-text-align:center;
-font-weight:600;
-}
-
-.arrow{font-size:22px;color:#93c5fd;}
-
-.vpn-box,.firewall-box{
-background:#2563eb;
-padding:10px 16px;
-border-radius:12px;
-width:100%;
-text-align:center;
-font-weight:600;
-}
-
-.rule-list{
-width:100%;
-background:#0f172a;
-padding:12px;
-border-radius:12px;
-font-size:14px;
-line-height:1.8;
-}
-
-.small-note{font-size:14px;color:#cbd5e1;}
-
-/* HOBBIES */
-.hobby-list{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:18px;
-}
-
-.hobby-item{
-background:#0f172a;
-padding:20px;
-border-radius:16px;
-text-align:center;
-border:1px solid rgba(147,197,253,.15);
-font-size:16px;
-color:#d1d5db;
-}
-
-/* CONTACT */
-.contact-item{
-display:flex;
-gap:12px;
-margin-bottom:15px;
-font-size:18px;
-color:#d1d5db;
-}
-
-.icon{color:#93c5fd;width:22px;}
-
-footer{text-align:center;padding:35px;color:#94a3b8;}
-
-/* MOBILE */
-@media(max-width:1100px){
-
-nav{flex-direction:column;gap:14px;padding:16px;}
-nav ul{justify-content:center;}
-
-.hero{
-padding:170px 20px 50px;
-justify-content:center;
-text-align:center;
-}
-
-.left h1{
-font-size:42px;
-white-space:normal;
-}
-
-.left h2{font-size:24px;}
-
-.photo-placeholder{
-width:230px;
-height:230px;
-font-size:18px;
-}
-
-.skills-grid,.hobby-list{
-grid-template-columns:repeat(2,1fr);
-}
-
-.project-card{
-grid-template-columns:1fr;
-}
-}
-
-@media(max-width:700px){
-.skills-grid,.hobby-list{
-grid-template-columns:1fr;
-}
-}
-</style>
+  </style>
 </head>
 
 <body>
 
-<div id="languagePopup">
-<div class="popup-box">
-<h2>Willkommen / Welcome</h2>
-<p>
-In welcher Sprache möchten Sie die Website ansehen?<br>
-Which language would you like to view the website in?
-</p>
-<button onclick="setLanguage('de')">🇩🇪 Deutsch</button>
-<button onclick="setLanguage('en')">🇬🇧 English</button>
-</div>
-</div>
+  <!-- 🌍 Language Switch -->
+  <div class="lang-switch">
+    <button onclick="setLanguage('de')">DE</button>
+    <button onclick="setLanguage('en')">EN</button>
+  </div>
 
-<nav>
-<div class="logo">Sangeeta</div>
-<ul>
-<li><a href="#about" id="nav1">Über mich</a></li>
-<li><a href="#skills" id="nav2">Kenntnisse</a></li>
-<li><a href="#projects" id="nav3">Projekte</a></li>
-<li><a href="#hobbies" id="nav4">Hobbys</a></li>
-<li><a href="#contact" id="nav5">Kontakt</a></li>
-</ul>
-</nav>
+  <!-- 🎯 HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1 id="title">Hallo, ich bin Sangeeta</h1>
+      <h2 id="role">
+        Angehende Fachinformatikerin für Systemintegration<span class="blink">_</span>
+      </h2>
 
-<section class="hero">
-<div class="left">
-<h1 id="title1">Hallo, ich bin Sangeeta</h1>
-<h2 id="title2">Angehende Fachinformatikerin für Systemintegration_</h2>
-<p id="desc">Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.</p>
+      <br>
 
-<div class="buttons">
-<a href="#contact" class="btn1" id="btn1">Kontakt aufnehmen</a>
-<a href="#projects" class="btn2" id="btn2">Projekte ansehen</a>
-</div>
-</div>
+      <button class="btn btn-primary" id="projectBtn">Projekt ansehen</button>
+      <button class="btn" id="contactBtn">Kontakt aufnehmen</button>
+    </div>
 
-<div class="right">
-<div class="photo-placeholder" id="photoText">
-Dein Foto<br>kommt hier später
-</div>
-</div>
-</section>
+    <div class="hero-img">
+      <!-- 👉 Replace with your photo -->
+      <img src="deinfoto.jpg" alt="Sangeeta">
+    </div>
+  </div>
 
-<section id="about">
-<div class="box">
-<h3 id="aboutTitle">Über mich</h3>
-<p id="aboutText">
-Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.
-</p>
-</div>
-</section>
+  <!-- 💻 SKILLS -->
+  <div class="skills">
 
-<section id="skills">
-<div class="box">
-<h3 id="skillTitle">Kenntnisse</h3>
+    <div>
+      <h3 id="itSkills">IT-Kenntnisse</h3>
+      <p>Windows (Client & Server)</p>
+      <p>Linux (Grundkenntnisse)</p>
+      <p>Active Directory</p>
+      <p>Microsoft 365</p>
+    </div>
 
-<div class="skills-grid">
-<div class="skill-card"><h4>💻 Systemintegration</h4><p>Windows Server<br>Active Directory<br>Benutzerverwaltung<br>IT Support</p></div>
-<div class="skill-card"><h4>🌐 Netzwerk</h4><p>TCP/IP<br>DNS<br>DHCP<br>VPN</p></div>
-<div class="skill-card"><h4>☁️ Cloud & Microsoft</h4><p>Microsoft 365<br>Azure Basics<br>AWS Basics<br>Exchange Online</p></div>
-<div class="skill-card"><h4>🧑‍💼 Business & HR</h4><p>Workday<br>Prozessoptimierung<br>Reporting<br>Stakeholder Management</p></div>
-</div>
+    <div>
+      <h3 id="progSkills">Programmiersprachen & Scripting</h3>
+      <p>PowerShell (Grundkenntnisse)</p>
+      <p>Java (Grundkenntnisse)</p>
+      <p>AWS (Grundlagen)</p>
+    </div>
 
-</div>
-</section>
+  </div>
 
-<section id="projects">
-<div class="box">
-<h3 id="projectTitle">Projekte</h3>
+  <!-- 📞 KONTAKT -->
+  <div class="kontakt">
+    <h3 id="contactTitle">Kontakt</h3>
+    <p>Email: deine@email.com</p>
+    <p>
+      LinkedIn:
+      <a href="https://www.linkedin.com/in/sangeetadas2204" target="_blank">
+        linkedin.com/in/sangeetadas2204
+      </a>
+    </p>
+  </div>
 
-<p class="project-intro" id="projectIntro">
-Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und dokumentiert, um praktische Erfahrungen zu vertiefen.
-</p>
+  <!-- 🌍 LANGUAGE SCRIPT -->
+  <script>
+    const translations = {
+      de: {
+        title: "Hallo, ich bin Sangeeta",
+        role: "Angehende Fachinformatikerin für Systemintegration",
+        project: "Projekt ansehen",
+        contact: "Kontakt aufnehmen",
+        it: "IT-Kenntnisse",
+        prog: "Programmiersprachen & Scripting",
+        kontakt: "Kontakt"
+      },
+      en: {
+        title: "Hello, I am Sangeeta",
+        role: "Aspiring IT Specialist for System Integration",
+        project: "View Projects",
+        contact: "Contact Me",
+        it: "IT Skills",
+        prog: "Programming & Scripting",
+        kontakt: "Contact"
+      }
+    };
 
-<div class="project-grid">
-
-<div class="project-card">
-<div>
-<h4 id="p1t">🔐 OpenVPN Konfiguration</h4>
-<p id="p1d">
-• OpenVPN auf Linux VM eingerichtet<br>
-• Verbindung zwischen Linux VM und Host-System aufgebaut<br>
-• Routing geprüft<br>
-• Verbindung getestet
-</p>
-</div>
-
-<div class="diagram">
-<div class="node">🖥 Windows Host</div>
-<div class="arrow">⬇</div>
-<div class="vpn-box">🔐 VPN Tunnel</div>
-<div class="arrow">⬇</div>
-<div class="node">🐧 Linux VM</div>
-<div class="small-note">OpenVPN Server</div>
-</div>
-</div>
-
-<div class="project-card">
-<div>
-<h4 id="p2t">🛡 Firewall Regelkonfiguration</h4>
-<p id="p2d">
-• Webseitenzugriff eingeschränkt<br>
-• HTTP erlaubt / andere blockiert<br>
-• Firewall Regeln erstellt<br>
-• Windows Client getestet
-</p>
-</div>
-
-<div class="diagram">
-<div class="node">💻 Windows Client</div>
-<div class="arrow">⬇</div>
-<div class="firewall-box">🛡 Firewall</div>
-<div class="rule-list">
-<div>✔ HTTP erlaubt</div>
-<div>✖ HTTPS blockiert</div>
-<div>✔ Zugriff kontrolliert</div>
-</div>
-<div class="arrow">⬇</div>
-<div class="node">🌐 Internet</div>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-<section id="hobbies">
-<div class="box">
-<h3 id="hobbyTitle">Hobbys</h3>
-
-<div class="hobby-list">
-<div class="hobby-item" id="h1">📈 Persönliche Weiterentwicklung</div>
-<div class="hobby-item" id="h2">📚 Bücher lesen</div>
-<div class="hobby-item" id="h3">💃 Klassischer Tanz</div>
-<div class="hobby-item" id="h4">🍲 Internationale Rezepte lernen</div>
-</div>
-
-</div>
-</section>
-
-<section id="contact">
-<div class="box">
-<h3 id="contactTitle">Kontakt</h3>
-
-<div class="contact-item"><span class="icon">☎</span>01523-6734519</div>
-<div class="contact-item"><span class="icon">✉</span>sangeeta-das@gmx.de</div>
-<div class="contact-item"><span class="icon">⌂</span>Düsseldorf</div>
-
-</div>
-</section>
-
-<footer>© 2026 Sangeeta Kumari Das</footer>
-
-<script>
-function setLanguage(lang){
-
-document.getElementById("languagePopup").style.display="none";
-
-if(lang==="en"){
-
-nav1.innerHTML="About";
-nav2.innerHTML="Skills";
-nav3.innerHTML="Projects";
-nav4.innerHTML="Hobbies";
-nav5.innerHTML="Contact";
-
-title1.innerHTML="Hi, I'm Sangeeta";
-title2.innerHTML="Aspiring IT Specialist in System Integration_";
-desc.innerHTML="Committed, reliable and motivated for continuous growth.";
-
-btn1.innerHTML="Get In Touch";
-btn2.innerHTML="View Projects";
-
-photoText.innerHTML="Your Photo<br>Coming Soon";
-
-aboutTitle.innerHTML="About";
-aboutText.innerHTML="Currently retraining as an IT Specialist in System Integration at BBQ Düsseldorf. In addition, I bring more than 8 years of HR experience, especially in process optimization and Workday. I now aim to apply my experience in the IT field.";
-
-skillTitle.innerHTML="Skills";
-
-projectTitle.innerHTML="Projects";
-projectIntro.innerHTML="The projects below were independently planned, implemented and documented to deepen my practical experience.";
-
-p1t.innerHTML="🔐 OpenVPN Configuration";
-p1d.innerHTML="• OpenVPN installed on Linux VM<br>• Connection established between Linux VM and Host system<br>• Routing checked<br>• Connection tested";
-
-p2t.innerHTML="🛡 Firewall Rule Configuration";
-p2d.innerHTML="• Website access restricted<br>• HTTP allowed / others blocked<br>• Firewall rules created<br>• Windows client tested";
-
-hobbyTitle.innerHTML="Hobbies";
-h1.innerHTML="📈 Personal Development";
-h2.innerHTML="📚 Reading Books";
-h3.innerHTML="💃 Classical Dance";
-h4.innerHTML="🍲 Learning International Recipes";
-
-contactTitle.innerHTML="Contact";
-
-}else{
-
-nav1.innerHTML="Über mich";
-nav2.innerHTML="Kenntnisse";
-nav3.innerHTML="Projekte";
-nav4.innerHTML="Hobbys";
-nav5.innerHTML="Kontakt";
-
-title1.innerHTML="Hallo, ich bin Sangeeta";
-title2.innerHTML="Angehende Fachinformatikerin für Systemintegration_";
-desc.innerHTML="Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.";
-
-btn1.innerHTML="Kontakt aufnehmen";
-btn2.innerHTML="Projekte ansehen";
-
-photoText.innerHTML="Dein Foto<br>kommt hier später";
-
-aboutTitle.innerHTML="Über mich";
-aboutText.innerHTML="Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.";
-
-skillTitle.innerHTML="Kenntnisse";
-
-projectTitle.innerHTML="Projekte";
-projectIntro.innerHTML="Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und dokumentiert, um praktische Erfahrungen zu vertiefen.";
-
-p1t.innerHTML="🔐 OpenVPN Konfiguration";
-p1d.innerHTML="• OpenVPN auf Linux VM eingerichtet<br>• Verbindung zwischen Linux VM und Host-System aufgebaut<br>• Routing geprüft<br>• Verbindung getestet";
-
-p2t.innerHTML="🛡 Firewall Regelkonfiguration";
-p2d.innerHTML="• Webseitenzugriff eingeschränkt<br>• HTTP erlaubt / andere blockiert<br>• Firewall Regeln erstellt<br>• Windows Client getestet";
-
-hobbyTitle.innerHTML="Hobbys";
-h1.innerHTML="📈 Persönliche Weiterentwicklung";
-h2.innerHTML="📚 Bücher lesen";
-h3.innerHTML="💃 Klassischer Tanz";
-h4.innerHTML="🍲 Internationale Rezepte lernen";
-
-contactTitle.innerHTML="Kontakt";
-}
-}
-</script>
+    function setLanguage(lang) {
+      document.getElementById("title").innerText = translations[lang].title;
+      document.getElementById("role").innerText = translations[lang].role;
+      document.getElementById("projectBtn").innerText = translations[lang].project;
+      document.getElementById("contactBtn").innerText = translations[lang].contact;
+      document.getElementById("itSkills").innerText = translations[lang].it;
+      document.getElementById("progSkills").innerText = translations[lang].prog;
+      document.getElementById("contactTitle").innerText = translations[lang].kontakt;
+    }
+  </script>
 
 </body>
 </html>
