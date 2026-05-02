@@ -1,189 +1,285 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sangeeta Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sangeeta Portfolio</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #0f172a, #1e293b);
-      color: white;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
-    /* 🌍 Language switch */
-    .lang-switch {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
+body{background:#0f172a;color:white;}
 
-    button {
-      cursor: pointer;
-    }
+/* blinking cursor */
+.cursor{
+animation:blink 1s infinite;
+}
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0;}
+100%{opacity:1;}
+}
 
-    /* 🎯 HERO SECTION */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 60px;
-    }
+/* popup */
+#languagePopup{
+position:fixed;
+width:100%;
+height:100%;
+background:#0f172a;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
 
-    .hero-text {
-      width: 60%;
-    }
+.popup-box{
+background:#111827;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
 
-    .hero-img img {
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #4da3ff;
-    }
+button{
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:#2563eb;
+color:white;
+}
 
-    /* ✨ Blinking cursor */
-    .blink {
-      animation: blink 1s infinite;
-    }
+/* nav */
+nav{
+position:fixed;
+top:10px;
+left:10px;
+right:10px;
+display:flex;
+justify-content:space-between;
+padding:15px 25px;
+background:#111827;
+border-radius:20px;
+}
 
-    @keyframes blink {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0; }
-    }
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
 
-    /* 🔘 Buttons */
-    .btn {
-      border: 2px solid #4da3ff;
-      padding: 10px 20px;
-      border-radius: 6px;
-      color: white;
-      background: transparent;
-      margin-right: 10px;
-    }
+nav a{color:white;text-decoration:none;}
 
-    .btn-primary {
-      background: #4da3ff;
-    }
+/* hero */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:140px 60px;
+flex-wrap:wrap;
+}
 
-    /* 💻 Skills */
-    .skills {
-      display: flex;
-      gap: 40px;
-      padding: 40px 60px;
-    }
+.left{
+max-width:600px;
+}
 
-    .skills div {
-      width: 50%;
-    }
+.left h1{
+font-size:42px;
+margin-bottom:10px;
+}
 
-    /* 📞 Kontakt */
-    .kontakt {
-      padding: 40px 60px;
-    }
+.left h2{
+font-size:24px;
+color:#93c5fd;
+margin-bottom:20px;
+}
 
-    a {
-      color: #4da3ff;
-    }
+.buttons a{
+padding:12px 25px;
+border-radius:30px;
+border:2px solid #2563eb;
+margin-right:10px;
+text-decoration:none;
+color:white;
+}
 
-  </style>
+/* photo */
+.photo img{
+width:280px;
+height:280px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #334155;
+}
+
+/* sections */
+section{padding:80px 40px;}
+
+.box{
+background:#111827;
+padding:30px;
+border-radius:20px;
+}
+
+/* skills */
+.skills{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:15px;
+}
+
+.skill{
+background:#0f172a;
+padding:15px;
+border-radius:15px;
+}
+
+/* contact */
+.contact-item{
+margin-bottom:12px;
+}
+
+/* mobile */
+@media(max-width:900px){
+.hero{flex-direction:column;text-align:center;}
+.skills{grid-template-columns:1fr;}
+.photo img{width:200px;height:200px;}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- 🌍 Language Switch -->
-  <div class="lang-switch">
-    <button onclick="setLanguage('de')">DE</button>
-    <button onclick="setLanguage('en')">EN</button>
-  </div>
+<!-- LANGUAGE POPUP -->
+<div id="languagePopup">
+<div class="popup-box">
+<h2>Willkommen / Welcome</h2>
+<p>Sprache wählen / Choose language</p>
+<button onclick="setLanguage('de')">Deutsch</button>
+<button onclick="setLanguage('en')">English</button>
+</div>
+</div>
 
-  <!-- 🎯 HERO -->
-  <div class="hero">
-    <div class="hero-text">
-      <h1 id="title">Hallo, ich bin Sangeeta</h1>
-      <h2 id="role">
-        Angehende Fachinformatikerin für Systemintegration<span class="blink">_</span>
-      </h2>
+<!-- NAV -->
+<nav>
+<div>Sangeeta</div>
+<ul>
+<li><a href="#about" id="nav1">Über mich</a></li>
+<li><a href="#skills" id="nav2">Kenntnisse</a></li>
+<li><a href="#projects" id="nav3">Projekte</a></li>
+<li><a href="#contact" id="nav4">Kontakt</a></li>
+</ul>
+</nav>
 
-      <br>
+<!-- HERO -->
+<section class="hero">
+<div class="left">
+<h1 id="title1">Hallo, ich bin Sangeeta</h1>
 
-      <button class="btn btn-primary" id="projectBtn">Projekt ansehen</button>
-      <button class="btn" id="contactBtn">Kontakt aufnehmen</button>
-    </div>
+<h2 id="title2">
+Angehende Fachinformatikerin für Systemintegration<span class="cursor">_</span>
+</h2>
 
-    <div class="hero-img">
-      <!-- 👉 Replace with your photo -->
-      <img src="deinfoto.jpg" alt="Sangeeta">
-    </div>
-  </div>
+<div class="buttons">
+<a href="#contact" id="btn1">Kontakt aufnehmen</a>
+<a href="#projects" id="btn2">Projekte ansehen</a>
+</div>
+</div>
 
-  <!-- 💻 SKILLS -->
-  <div class="skills">
+<div class="photo">
+<img src="profile.jpg" alt="profile">
+</div>
+</section>
 
-    <div>
-      <h3 id="itSkills">IT-Kenntnisse</h3>
-      <p>Windows (Client & Server)</p>
-      <p>Linux (Grundkenntnisse)</p>
-      <p>Active Directory</p>
-      <p>Microsoft 365</p>
-    </div>
+<!-- ABOUT -->
+<section id="about">
+<div class="box">
+<h3 id="aboutTitle">Über mich</h3>
 
-    <div>
-      <h3 id="progSkills">Programmiersprachen & Scripting</h3>
-      <p>PowerShell (Grundkenntnisse)</p>
-      <p>Java (Grundkenntnisse)</p>
-      <p>AWS (Grundlagen)</p>
-    </div>
+<p id="aboutText">
+Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.
+</p>
 
-  </div>
+</div>
+</section>
 
-  <!-- 📞 KONTAKT -->
-  <div class="kontakt">
-    <h3 id="contactTitle">Kontakt</h3>
-    <p>Email: deine@email.com</p>
-    <p>
-      LinkedIn:
-      <a href="https://www.linkedin.com/in/sangeetadas2204" target="_blank">
-        linkedin.com/in/sangeetadas2204
-      </a>
-    </p>
-  </div>
+<!-- SKILLS -->
+<section id="skills">
+<div class="box">
+<h3 id="skillTitle">Kenntnisse</h3>
 
-  <!-- 🌍 LANGUAGE SCRIPT -->
-  <script>
-    const translations = {
-      de: {
-        title: "Hallo, ich bin Sangeeta",
-        role: "Angehende Fachinformatikerin für Systemintegration",
-        project: "Projekt ansehen",
-        contact: "Kontakt aufnehmen",
-        it: "IT-Kenntnisse",
-        prog: "Programmiersprachen & Scripting",
-        kontakt: "Kontakt"
-      },
-      en: {
-        title: "Hello, I am Sangeeta",
-        role: "Aspiring IT Specialist for System Integration",
-        project: "View Projects",
-        contact: "Contact Me",
-        it: "IT Skills",
-        prog: "Programming & Scripting",
-        kontakt: "Contact"
-      }
-    };
+<div class="skills">
+<div class="skill"><b>Systemintegration</b><br>Windows Server<br>Active Directory</div>
+<div class="skill"><b>Netzwerk</b><br>DNS<br>DHCP<br>VPN</div>
+<div class="skill"><b>Cloud</b><br>M365<br>AWS</div>
+<div class="skill"><b>HR</b><br>Workday</div>
+<div class="skill">
+<b id="progTitle">Programmierung</b><br>
+<span id="progText">PowerShell<br>Java (Basics)</span>
+</div>
+</div>
 
-    function setLanguage(lang) {
-      document.getElementById("title").innerText = translations[lang].title;
-      document.getElementById("role").innerText = translations[lang].role;
-      document.getElementById("projectBtn").innerText = translations[lang].project;
-      document.getElementById("contactBtn").innerText = translations[lang].contact;
-      document.getElementById("itSkills").innerText = translations[lang].it;
-      document.getElementById("progSkills").innerText = translations[lang].prog;
-      document.getElementById("contactTitle").innerText = translations[lang].kontakt;
-    }
-  </script>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="box">
+<h3 id="projectTitle">Projekte</h3>
+<p id="projectIntro">Selbstständig geplant und umgesetzt.</p>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="box">
+<h3 id="contactTitle">Kontakt</h3>
+
+<div class="contact-item">📞 01523-6734519</div>
+<div class="contact-item">✉ sangeeta-das@gmx.de</div>
+<div class="contact-item">
+🔗 <a href="https://www.linkedin.com/in/sangeetadas2204" target="_blank" style="color:#93c5fd;">
+LinkedIn Profil
+</a>
+</div>
+
+</div>
+</section>
+
+<script>
+function setLanguage(lang){
+
+document.getElementById("languagePopup").style.display="none";
+
+if(lang==="en"){
+
+nav1.innerHTML="About";
+nav2.innerHTML="Skills";
+nav3.innerHTML="Projects";
+nav4.innerHTML="Contact";
+
+title1.innerHTML="Hi, I'm Sangeeta";
+
+title2.innerHTML="Aspiring IT Specialist in System Integration<span class='cursor'>_</span>";
+
+btn1.innerHTML="Get in touch";
+btn2.innerHTML="View projects";
+
+aboutTitle.innerHTML="About";
+aboutText.innerHTML="Currently retraining as an IT Specialist in System Integration at BBQ Düsseldorf. I bring over 8 years of HR experience with strong focus on process optimization and Workday. Now I aim to apply my experience in IT.";
+
+skillTitle.innerHTML="Skills";
+
+progTitle.innerHTML="Programming";
+progText.innerHTML="PowerShell<br>Java (Basics)";
+
+projectTitle.innerHTML="Projects";
+projectIntro.innerHTML="Self-planned and implemented projects.";
+
+contactTitle.innerHTML="Contact";
+}
+}
+</script>
 
 </body>
 </html>
