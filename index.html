@@ -9,33 +9,40 @@
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 body{font-family:Arial,sans-serif;background:#0f172a;color:#fff;overflow-x:hidden;}
 
-/* POPUP */
-#languagePopup{
-position:fixed;top:0;left:0;width:100%;height:100%;
-background:rgba(15,23,42,.96);
-display:flex;justify-content:center;align-items:center;z-index:99999;
-}
-.popup-box{
-background:#111827;padding:45px;border-radius:22px;text-align:center;
-width:90%;max-width:520px;border:1px solid rgba(147,197,253,.18);
-}
-.popup-box h2{font-size:30px;margin-bottom:15px;color:#93c5fd;}
-.popup-box p{font-size:18px;line-height:1.7;margin-bottom:28px;color:#d1d5db;}
-.popup-box button{
-padding:14px 28px;margin:10px;font-size:18px;border:none;border-radius:35px;
-cursor:pointer;font-weight:600;background:#2563eb;color:white;
-}
-
 /* NAV */
 nav{
 position:fixed;top:16px;left:18px;right:18px;
-padding:18px 35px;display:flex;justify-content:space-between;align-items:center;
-background:rgba(17,24,39,.72);backdrop-filter:blur(12px);
-border:1px solid rgba(148,163,184,.25);border-radius:24px;z-index:1000;
+padding:16px 28px;display:flex;justify-content:space-between;align-items:center;
+background:rgba(17,24,39,.78);backdrop-filter:blur(12px);
+border:1px solid rgba(148,163,184,.25);border-radius:22px;z-index:1000;
 }
-.logo{font-size:28px;font-weight:700;color:#93c5fd;}
-nav ul{display:flex;list-style:none;gap:28px;flex-wrap:wrap;}
-nav ul li a{text-decoration:none;color:white;font-size:17px;font-weight:600;}
+.logo{font-size:26px;font-weight:700;color:#93c5fd;}
+.nav-right{display:flex;align-items:center;gap:24px;}
+nav ul{display:flex;list-style:none;gap:24px;flex-wrap:wrap;}
+nav ul li a{text-decoration:none;color:white;font-size:16px;font-weight:600;}
+nav ul li a:hover{color:#93c5fd;}
+
+.lang-switch{
+display:flex;
+gap:8px;
+background:#0f172a;
+border:1px solid rgba(147,197,253,.25);
+border-radius:999px;
+padding:5px;
+}
+.lang-switch button{
+border:none;
+background:transparent;
+color:#cbd5e1;
+font-weight:700;
+padding:7px 12px;
+border-radius:999px;
+cursor:pointer;
+}
+.lang-switch button.active{
+background:#2563eb;
+color:white;
+}
 
 /* HERO */
 .hero{
@@ -43,15 +50,15 @@ min-height:100vh;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:150px 70px 40px;
-gap:40px;
+padding:140px 70px 55px;
+gap:42px;
 background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
 }
 
-.left{max-width:680px;flex:1;}
-.left h1{font-size:56px;margin-bottom:16px;white-space:nowrap;}
-.left h2{font-size:28px;margin-bottom:20px;font-family:monospace;color:#93c5fd;}
-.left p{font-size:20px;line-height:1.7;color:#d1d5db;margin-bottom:32px;}
+.left{max-width:720px;flex:1;}
+.left h1{font-size:54px;margin-bottom:16px;white-space:nowrap;}
+.left h2{font-size:27px;margin-bottom:18px;font-family:monospace;color:#93c5fd;}
+.left p{font-size:19px;line-height:1.7;color:#d1d5db;margin-bottom:30px;}
 
 .cursor{
 display:inline-block;
@@ -63,11 +70,20 @@ animation:blink 0.8s infinite;
 }
 
 .buttons a{
-display:inline-block;padding:15px 30px;border-radius:40px;text-decoration:none;
-font-size:18px;font-weight:600;margin-right:14px;margin-bottom:10px;
+display:inline-block;
+padding:14px 28px;
+border-radius:40px;
+text-decoration:none;
+font-size:17px;
+font-weight:700;
+margin-right:14px;
+margin-bottom:10px;
+border:2px solid #2563eb;
+color:white;
 }
-.btn1{border:2px solid #2563eb;color:white;}
-.btn2{border:2px solid #2563eb;color:white;}
+.buttons a:hover{
+background:#2563eb;
+}
 
 .right{
 display:flex;
@@ -85,24 +101,31 @@ box-shadow:0 0 35px rgba(37,99,235,.45);
 }
 
 /* SECTION */
-section{padding:100px 40px 60px;}
+section{padding:90px 40px 55px;}
 
 .box{
-max-width:1150px;margin:auto;
+max-width:1150px;
+margin:auto;
 background:linear-gradient(145deg,#111827,#0f172a);
-padding:40px;border-radius:22px;
+padding:38px;
+border-radius:20px;
 border:1px solid rgba(147,197,253,.18);
 position:relative;
 }
 
 .box::before{
-content:"";position:absolute;top:0;left:0;width:100%;height:4px;
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:4px;
 background:linear-gradient(90deg,#2563eb,#93c5fd);
-border-radius:22px 22px 0 0;
+border-radius:20px 20px 0 0;
 }
 
-.box h3{font-size:30px;margin-bottom:20px;color:#93c5fd;}
-.box p{font-size:18px;line-height:1.8;color:#d1d5db;}
+.box h3{font-size:30px;margin-bottom:22px;color:#93c5fd;}
+.box p{font-size:17px;line-height:1.8;color:#d1d5db;}
 
 /* SKILLS */
 .skills-grid{
@@ -114,7 +137,7 @@ gap:20px;
 .skill-card{
 background:#0f172a;
 padding:22px;
-border-radius:18px;
+border-radius:16px;
 border:1px solid rgba(147,197,253,.18);
 }
 
@@ -149,13 +172,13 @@ grid-template-columns:1.1fr .9fr;
 gap:24px;
 background:#0f172a;
 padding:24px;
-border-radius:18px;
+border-radius:16px;
 border:1px solid rgba(147,197,253,.15);
 }
 
 .project-card h4{
 font-size:22px;
-margin-bottom:14px;
+margin-bottom:12px;
 color:#93c5fd;
 }
 
@@ -164,10 +187,33 @@ font-size:16px;
 line-height:1.8;
 }
 
+.tools{
+margin:14px 0;
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.tools span{
+font-size:13px;
+font-weight:700;
+color:#bfdbfe;
+background:#1e293b;
+border:1px solid rgba(147,197,253,.2);
+padding:6px 10px;
+border-radius:999px;
+}
+
+.result{
+margin-top:12px;
+font-size:15px;
+color:#bfdbfe;
+}
+
 .diagram{
 background:#111827;
 padding:22px;
-border-radius:18px;
+border-radius:16px;
 border:1px solid rgba(147,197,253,.15);
 display:flex;
 flex-direction:column;
@@ -181,7 +227,7 @@ padding:10px 16px;
 border-radius:12px;
 width:100%;
 text-align:center;
-font-weight:600;
+font-weight:700;
 }
 
 .arrow{font-size:22px;color:#93c5fd;}
@@ -192,7 +238,7 @@ padding:10px 16px;
 border-radius:12px;
 width:100%;
 text-align:center;
-font-weight:600;
+font-weight:700;
 }
 
 .rule-list{
@@ -247,9 +293,21 @@ text-decoration:underline;
 
 .icon{
 color:#93c5fd;
-width:22px;
-display:inline-block;
+width:26px;
+display:inline-flex;
+justify-content:center;
+align-items:center;
 flex-shrink:0;
+}
+
+.linkedin-icon{
+background:#2563eb;
+color:white;
+font-weight:800;
+font-size:13px;
+border-radius:5px;
+height:22px;
+width:22px;
 }
 
 footer{text-align:center;padding:35px;color:#94a3b8;}
@@ -257,8 +315,21 @@ footer{text-align:center;padding:35px;color:#94a3b8;}
 /* TABLET */
 @media(max-width:1100px){
 
-nav{flex-direction:column;gap:14px;padding:16px;}
-nav ul{justify-content:center;}
+nav{
+flex-direction:column;
+gap:14px;
+padding:16px;
+}
+
+.nav-right{
+flex-direction:column;
+gap:12px;
+}
+
+nav ul{
+justify-content:center;
+gap:16px;
+}
 
 .hero{
 padding:170px 24px 50px;
@@ -305,11 +376,11 @@ border-radius:0;
 }
 
 nav ul{
-gap:14px;
+gap:13px;
 }
 
 .hero{
-padding:50px 18px 45px;
+padding:48px 18px 45px;
 gap:22px;
 flex-wrap:wrap;
 text-align:center;
@@ -361,20 +432,10 @@ font-size:16px;
 
 <body>
 
-<div id="languagePopup">
-<div class="popup-box">
-<h2>Willkommen / Welcome</h2>
-<p>
-In welcher Sprache möchten Sie die Website ansehen?<br>
-Which language would you like to view the website in?
-</p>
-<button onclick="setLanguage('de')">🇩🇪 Deutsch</button>
-<button onclick="setLanguage('en')">🇬🇧 English</button>
-</div>
-</div>
-
 <nav>
 <div class="logo">Sangeeta</div>
+
+<div class="nav-right">
 <ul>
 <li><a href="#about" id="nav1">Über mich</a></li>
 <li><a href="#skills" id="nav2">Kenntnisse</a></li>
@@ -382,17 +443,23 @@ Which language would you like to view the website in?
 <li><a href="#hobbies" id="nav4">Hobbys</a></li>
 <li><a href="#contact" id="nav5">Kontakt</a></li>
 </ul>
+
+<div class="lang-switch">
+<button id="deBtn" class="active" onclick="setLanguage('de')">DE</button>
+<button id="enBtn" onclick="setLanguage('en')">EN</button>
+</div>
+</div>
 </nav>
 
 <section class="hero">
 <div class="left">
 <h1 id="title1">Hallo, ich bin Sangeeta</h1>
 <h2 id="title2">Angehende Fachinformatikerin für Systemintegration<span class="cursor">_</span></h2>
-<p id="desc">Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.</p>
+<p id="desc">Fokus auf Systemintegration, Netzwerke, Cloud-Grundlagen und IT-Support. Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.</p>
 
 <div class="buttons">
-<a href="#contact" class="btn1" id="btn1">Kontakt aufnehmen</a>
-<a href="#projects" class="btn2" id="btn2">Projekte ansehen</a>
+<a href="#contact" id="btn1">Kontakt aufnehmen</a>
+<a href="#projects" id="btn2">Projekte ansehen</a>
 </div>
 </div>
 
@@ -405,7 +472,7 @@ Which language would you like to view the website in?
 <div class="box">
 <h3 id="aboutTitle">Über mich</h3>
 <p id="aboutText">
-Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.
+Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf. Zusätzlich bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung, Workday und strukturierter Zusammenarbeit mit verschiedenen Stakeholdern. Diese Erfahrung möchte ich nun gezielt im IT-Bereich einsetzen.
 </p>
 </div>
 </section>
@@ -431,7 +498,7 @@ Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegra
 <h3 id="projectTitle">Projekte</h3>
 
 <p class="project-intro" id="projectIntro">
-Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und dokumentiert, um praktische Erfahrungen zu vertiefen.
+Diese Projekte habe ich eigenständig geplant, umgesetzt und dokumentiert, um praktische Erfahrung in Systemintegration, Netzwerk und Cloud-Grundlagen aufzubauen.
 </p>
 
 <div class="project-grid">
@@ -439,12 +506,15 @@ Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und d
 <div class="project-card">
 <div>
 <h4 id="p1t">🔐 OpenVPN Konfiguration</h4>
+<div class="tools" id="p1tools">
+<span>Linux VM</span><span>OpenVPN</span><span>Routing</span>
+</div>
 <p id="p1d">
-• OpenVPN auf Linux VM eingerichtet<br>
-• Verbindung zwischen Linux VM und Host-System aufgebaut<br>
-• Routing geprüft<br>
-• Verbindung getestet
+• OpenVPN auf einer Linux VM eingerichtet<br>
+• Verbindung zwischen Host-System und VM aufgebaut<br>
+• Routing geprüft und Verbindung getestet
 </p>
+<div class="result" id="p1r">Ergebnis: Sichere VPN-Verbindung erfolgreich aufgebaut.</div>
 </div>
 
 <div class="diagram">
@@ -460,12 +530,15 @@ Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und d
 <div class="project-card">
 <div>
 <h4 id="p2t">🛡 Firewall Regelkonfiguration</h4>
+<div class="tools" id="p2tools">
+<span>Firewall</span><span>Windows Client</span><span>Webzugriff</span>
+</div>
 <p id="p2d">
-• Webseitenzugriff eingeschränkt<br>
-• HTTP erlaubt / andere blockiert<br>
-• Firewall Regeln erstellt<br>
-• Windows Client getestet
+• Firewall-Regeln erstellt und getestet<br>
+• HTTP-Zugriff erlaubt und andere Zugriffe eingeschränkt<br>
+• Verhalten am Windows Client geprüft
 </p>
+<div class="result" id="p2r">Ergebnis: Netzwerkzugriff kontrolliert und nachvollziehbar eingeschränkt.</div>
 </div>
 
 <div class="diagram">
@@ -485,12 +558,15 @@ Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und d
 <div class="project-card">
 <div>
 <h4 id="p3t">☁️ AWS Statische Website mit Monitoring</h4>
+<div class="tools" id="p3tools">
+<span>Amazon S3</span><span>CloudFront</span><span>CloudWatch</span><span>SNS</span>
+</div>
 <p id="p3d">
 • Statische Website mit Amazon S3 gehostet<br>
 • CloudFront für schnelle Auslieferung genutzt<br>
-• CloudWatch Monitoring eingerichtet<br>
-• Alarm-Benachrichtigung per E-Mail getestet
+• CloudWatch Monitoring und E-Mail-Alarm eingerichtet
 </p>
+<div class="result" id="p3r">Ergebnis: Website bereitgestellt und mit einfacher Überwachung abgesichert.</div>
 </div>
 
 <div class="diagram">
@@ -530,7 +606,7 @@ Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und d
 <div class="contact-item"><span class="icon">☎</span><a href="tel:015236734519">01523-6734519</a></div>
 <div class="contact-item"><span class="icon">✉</span><a href="mailto:sangeeta-das@gmx.de">sangeeta-das@gmx.de</a></div>
 <div class="contact-item"><span class="icon">⌂</span>Düsseldorf</div>
-<div class="contact-item"><span class="icon">in</span><a href="https://www.linkedin.com/in/sangeetadas2204/" target="_blank">LinkedIn</a></div>
+<div class="contact-item"><span class="icon linkedin-icon">in</span><a href="https://www.linkedin.com/in/sangeetadas2204/" target="_blank">LinkedIn</a></div>
 
 </div>
 </section>
@@ -540,9 +616,10 @@ Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und d
 <script>
 function setLanguage(lang){
 
-document.getElementById("languagePopup").style.display="none";
-
 if(lang==="en"){
+
+deBtn.classList.remove("active");
+enBtn.classList.add("active");
 
 nav1.innerHTML="About";
 nav2.innerHTML="Skills";
@@ -552,27 +629,33 @@ nav5.innerHTML="Contact";
 
 title1.innerHTML="Hi, I'm Sangeeta";
 title2.innerHTML='Aspiring IT Specialist in System Integration<span class="cursor">_</span>';
-desc.innerHTML="Committed, reliable and motivated for continuous growth.";
+desc.innerHTML="Focused on system integration, networking, cloud basics and IT support. Committed, reliable and motivated for continuous growth.";
 
 btn1.innerHTML="Get In Touch";
 btn2.innerHTML="View Projects";
 
 aboutTitle.innerHTML="About";
-aboutText.innerHTML="Currently retraining as an IT Specialist in System Integration at BBQ Düsseldorf. In addition, I bring more than 8 years of HR experience, especially in process optimization and Workday. I now aim to apply my experience in the IT field.";
+aboutText.innerHTML="I am currently retraining as an IT Specialist in System Integration at BBQ Düsseldorf. I also bring more than 8 years of HR experience, especially in process optimization, Workday and structured collaboration with different stakeholders. I now want to apply this experience in the IT field.";
 
 skillTitle.innerHTML="Skills";
 
 projectTitle.innerHTML="Projects";
-projectIntro.innerHTML="The projects below were independently planned, implemented and documented to deepen my practical experience.";
+projectIntro.innerHTML="I independently planned, implemented and documented these projects to build practical experience in system integration, networking and cloud basics.";
 
 p1t.innerHTML="🔐 OpenVPN Configuration";
-p1d.innerHTML="• OpenVPN installed on Linux VM<br>• Connection established between Linux VM and Host system<br>• Routing checked<br>• Connection tested";
+p1tools.innerHTML="<span>Linux VM</span><span>OpenVPN</span><span>Routing</span>";
+p1d.innerHTML="• OpenVPN configured on a Linux VM<br>• Connection built between host system and VM<br>• Routing checked and connection tested";
+p1r.innerHTML="Result: Secure VPN connection successfully established.";
 
 p2t.innerHTML="🛡 Firewall Rule Configuration";
-p2d.innerHTML="• Website access restricted<br>• HTTP allowed / others blocked<br>• Firewall rules created<br>• Windows client tested";
+p2tools.innerHTML="<span>Firewall</span><span>Windows Client</span><span>Web Access</span>";
+p2d.innerHTML="• Firewall rules created and tested<br>• HTTP access allowed and other access restricted<br>• Behavior checked on a Windows client";
+p2r.innerHTML="Result: Network access controlled and clearly restricted.";
 
 p3t.innerHTML="☁️ AWS Static Website with Monitoring";
-p3d.innerHTML="• Static website hosted with Amazon S3<br>• CloudFront used for fast delivery<br>• CloudWatch monitoring configured<br>• Email alert tested for problems";
+p3tools.innerHTML="<span>Amazon S3</span><span>CloudFront</span><span>CloudWatch</span><span>SNS</span>";
+p3d.innerHTML="• Static website hosted with Amazon S3<br>• CloudFront used for fast delivery<br>• CloudWatch monitoring and email alert configured";
+p3r.innerHTML="Result: Website deployed and protected with simple monitoring.";
 
 hobbyTitle.innerHTML="Hobbies";
 h1.innerHTML="📈 Personal Development";
@@ -584,6 +667,9 @@ contactTitle.innerHTML="Contact";
 
 }else{
 
+deBtn.classList.add("active");
+enBtn.classList.remove("active");
+
 nav1.innerHTML="Über mich";
 nav2.innerHTML="Kenntnisse";
 nav3.innerHTML="Projekte";
@@ -592,27 +678,33 @@ nav5.innerHTML="Kontakt";
 
 title1.innerHTML="Hallo, ich bin Sangeeta";
 title2.innerHTML='Angehende Fachinformatikerin für Systemintegration<span class="cursor">_</span>';
-desc.innerHTML="Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.";
+desc.innerHTML="Fokus auf Systemintegration, Netzwerke, Cloud-Grundlagen und IT-Support. Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.";
 
 btn1.innerHTML="Kontakt aufnehmen";
 btn2.innerHTML="Projekte ansehen";
 
 aboutTitle.innerHTML="Über mich";
-aboutText.innerHTML="Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.";
+aboutText.innerHTML="Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf. Zusätzlich bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung, Workday und strukturierter Zusammenarbeit mit verschiedenen Stakeholdern. Diese Erfahrung möchte ich nun gezielt im IT-Bereich einsetzen.";
 
 skillTitle.innerHTML="Kenntnisse";
 
 projectTitle.innerHTML="Projekte";
-projectIntro.innerHTML="Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und dokumentiert, um praktische Erfahrungen zu vertiefen.";
+projectIntro.innerHTML="Diese Projekte habe ich eigenständig geplant, umgesetzt und dokumentiert, um praktische Erfahrung in Systemintegration, Netzwerk und Cloud-Grundlagen aufzubauen.";
 
 p1t.innerHTML="🔐 OpenVPN Konfiguration";
-p1d.innerHTML="• OpenVPN auf Linux VM eingerichtet<br>• Verbindung zwischen Linux VM und Host-System aufgebaut<br>• Routing geprüft<br>• Verbindung getestet";
+p1tools.innerHTML="<span>Linux VM</span><span>OpenVPN</span><span>Routing</span>";
+p1d.innerHTML="• OpenVPN auf einer Linux VM eingerichtet<br>• Verbindung zwischen Host-System und VM aufgebaut<br>• Routing geprüft und Verbindung getestet";
+p1r.innerHTML="Ergebnis: Sichere VPN-Verbindung erfolgreich aufgebaut.";
 
 p2t.innerHTML="🛡 Firewall Regelkonfiguration";
-p2d.innerHTML="• Webseitenzugriff eingeschränkt<br>• HTTP erlaubt / andere blockiert<br>• Firewall Regeln erstellt<br>• Windows Client getestet";
+p2tools.innerHTML="<span>Firewall</span><span>Windows Client</span><span>Webzugriff</span>";
+p2d.innerHTML="• Firewall-Regeln erstellt und getestet<br>• HTTP-Zugriff erlaubt und andere Zugriffe eingeschränkt<br>• Verhalten am Windows Client geprüft";
+p2r.innerHTML="Ergebnis: Netzwerkzugriff kontrolliert und nachvollziehbar eingeschränkt.";
 
 p3t.innerHTML="☁️ AWS Statische Website mit Monitoring";
-p3d.innerHTML="• Statische Website mit Amazon S3 gehostet<br>• CloudFront für schnelle Auslieferung genutzt<br>• CloudWatch Monitoring eingerichtet<br>• Alarm-Benachrichtigung per E-Mail getestet";
+p3tools.innerHTML="<span>Amazon S3</span><span>CloudFront</span><span>CloudWatch</span><span>SNS</span>";
+p3d.innerHTML="• Statische Website mit Amazon S3 gehostet<br>• CloudFront für schnelle Auslieferung genutzt<br>• CloudWatch Monitoring und E-Mail-Alarm eingerichtet";
+p3r.innerHTML="Ergebnis: Website bereitgestellt und mit einfacher Überwachung abgesichert.";
 
 hobbyTitle.innerHTML="Hobbys";
 h1.innerHTML="📈 Persönliche Weiterentwicklung";
