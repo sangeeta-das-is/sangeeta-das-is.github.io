@@ -7,309 +7,154 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-body{font-family:Arial,sans-serif;background:#0f172a;color:#fff;overflow-x:hidden;}
+body{font-family:Arial,sans-serif;background:#0f172a;color:#fff;}
 
-/* POPUP */
-#languagePopup{
-position:fixed;top:0;left:0;width:100%;height:100%;
-background:rgba(15,23,42,.96);
-display:flex;justify-content:center;align-items:center;z-index:99999;
-}
-.popup-box{
-background:#111827;padding:45px;border-radius:22px;text-align:center;
-width:90%;max-width:520px;border:1px solid rgba(147,197,253,.18);
-}
-.popup-box h2{font-size:30px;margin-bottom:15px;color:#93c5fd;}
-.popup-box p{font-size:18px;line-height:1.7;margin-bottom:28px;color:#d1d5db;}
-.popup-box button{
-padding:14px 28px;margin:10px;font-size:18px;border:none;border-radius:35px;
-cursor:pointer;font-weight:600;background:#2563eb;color:white;
-}
-
-/* NAV */
-nav{
-position:fixed;top:16px;left:18px;right:18px;
-padding:18px 35px;display:flex;justify-content:space-between;align-items:center;
-background:rgba(17,24,39,.72);backdrop-filter:blur(12px);
-border:1px solid rgba(148,163,184,.25);border-radius:24px;z-index:1000;
-}
-.logo{font-size:28px;font-weight:700;color:#93c5fd;}
-nav ul{display:flex;list-style:none;gap:28px;flex-wrap:wrap;}
-nav ul li a{text-decoration:none;color:white;font-size:17px;font-weight:600;}
+/* BLINK */
+.cursor{animation:blink 1s infinite;}
+@keyframes blink{50%{opacity:0;}}
 
 /* HERO */
 .hero{
-min-height:100vh;display:flex;justify-content:space-between;align-items:center;
-padding:150px 70px 40px;gap:50px;flex-wrap:wrap;
-background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
+display:flex;justify-content:space-between;align-items:center;
+padding:150px 70px;flex-wrap:wrap;
 }
-.left{max-width:720px;}
-.left h1{font-size:56px;margin-bottom:16px;white-space:nowrap;}
-.left h2{font-size:28px;margin-bottom:20px;font-family:monospace;color:#93c5fd;}
-.left p{font-size:20px;line-height:1.7;color:#d1d5db;margin-bottom:32px;}
+.left h1{font-size:48px;}
+.left h2{font-size:26px;color:#93c5fd;}
 
+/* PHOTO */
+.photo img{
+width:300px;height:300px;border-radius:50%;
+object-fit:cover;border:3px solid #334155;
+}
+
+/* BUTTON */
 .buttons a{
-display:inline-block;padding:15px 30px;border-radius:40px;text-decoration:none;
-font-size:18px;font-weight:600;margin-right:14px;
+padding:12px 25px;border:2px solid #2563eb;
+border-radius:30px;margin-right:10px;color:white;text-decoration:none;
 }
-.btn1{border:2px solid #2563eb;color:white;}
-.btn2{border:2px solid #64748b;color:white;}
-
-.photo-placeholder{
-width:360px;height:360px;border-radius:50%;border:3px solid #334155;
-display:flex;justify-content:center;align-items:center;text-align:center;
-font-size:22px;color:#94a3b8;
-}
-
-/* SECTION */
-section{padding:100px 40px 60px;}
-
-.box{
-max-width:1150px;margin:auto;
-background:linear-gradient(145deg,#111827,#0f172a);
-padding:40px;border-radius:22px;
-border:1px solid rgba(147,197,253,.18);
-position:relative;
-}
-
-.box::before{
-content:"";position:absolute;top:0;left:0;width:100%;height:4px;
-background:linear-gradient(90deg,#2563eb,#93c5fd);
-border-radius:22px 22px 0 0;
-}
-
-.box h3{font-size:30px;margin-bottom:20px;color:#93c5fd;}
-.box p{font-size:18px;line-height:1.8;color:#d1d5db;}
 
 /* SKILLS */
 .skills-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
+display:grid;grid-template-columns:repeat(5,1fr);gap:20px;
 }
 
-.skill-card{
-background:#0f172a;
-padding:22px;
-border-radius:18px;
-border:1px solid rgba(147,197,253,.18);
-}
-
-.skill-card h4{
-font-size:18px;
-margin-bottom:12px;
-color:#93c5fd;
-}
-
-.skill-card p{
-font-size:15px;
-line-height:1.8;
-}
-
-/* PROJECTS */
-.project-intro{
-margin-bottom:28px;
-color:#cbd5e1;
-font-size:17px;
-line-height:1.8;
-}
-
-.project-grid{
-display:flex;
-flex-direction:column;
-gap:24px;
-}
-
+/* PROJECT */
 .project-card{
-display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:24px;
-background:#0f172a;
-padding:24px;
-border-radius:18px;
-border:1px solid rgba(147,197,253,.15);
+display:grid;grid-template-columns:1fr 1fr;
+background:#0f172a;padding:20px;border-radius:15px;margin-top:20px;
 }
 
-.project-card h4{
-font-size:22px;
-margin-bottom:14px;
-color:#93c5fd;
-}
-
-.project-card p{
-font-size:16px;
-line-height:1.8;
-}
-
-.diagram{
-background:#111827;
-padding:22px;
-border-radius:18px;
-border:1px solid rgba(147,197,253,.15);
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:12px;
-}
-
-.node{
-background:#1e293b;
-padding:10px 16px;
-border-radius:12px;
-width:100%;
-text-align:center;
-font-weight:600;
-}
-
-.arrow{font-size:22px;color:#93c5fd;}
-
-.vpn-box,.firewall-box{
-background:#2563eb;
-padding:10px 16px;
-border-radius:12px;
-width:100%;
-text-align:center;
-font-weight:600;
-}
-
-.rule-list{
-width:100%;
-background:#0f172a;
-padding:12px;
-border-radius:12px;
-font-size:14px;
-line-height:1.8;
-}
-
-.small-note{font-size:14px;color:#cbd5e1;}
-
-/* HOBBIES */
-.hobby-list{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:18px;
-}
-
-.hobby-item{
-background:#0f172a;
-padding:20px;
-border-radius:16px;
-text-align:center;
-border:1px solid rgba(147,197,253,.15);
-font-size:16px;
-color:#d1d5db;
-}
-
-/* CONTACT */
-.contact-item{
-display:flex;
-gap:12px;
-margin-bottom:15px;
-font-size:18px;
-color:#d1d5db;
-}
-
-.icon{color:#93c5fd;width:22px;}
-
-footer{text-align:center;padding:35px;color:#94a3b8;}
-
-@media(max-width:1100px){
-.hero{padding:170px 20px 50px;text-align:center;}
-.skills-grid,.hobby-list{grid-template-columns:repeat(2,1fr);}
-.project-card{grid-template-columns:1fr;}
-}
+.diagram{background:#111827;padding:15px;border-radius:15px;text-align:center;}
+.node{background:#1e293b;padding:10px;border-radius:10px;margin:5px 0;}
 </style>
 </head>
 
 <body>
 
-<div id="languagePopup">
-<div class="popup-box">
-<h2>Willkommen / Welcome</h2>
-<p>Sprache wählen / Choose language</p>
-<button onclick="setLanguage('de')">Deutsch</button>
-<button onclick="setLanguage('en')">English</button>
-</div>
-</div>
-
-<nav>
-<div class="logo">Sangeeta</div>
-<ul>
-<li><a href="#about" id="nav1">Über mich</a></li>
-<li><a href="#skills" id="nav2">Kenntnisse</a></li>
-<li><a href="#projects" id="nav3">Projekte</a></li>
-<li><a href="#hobbies" id="nav4">Hobbys</a></li>
-<li><a href="#contact" id="nav5">Kontakt</a></li>
-</ul>
-</nav>
-
 <section class="hero">
 <div class="left">
 <h1 id="title1">Hallo, ich bin Sangeeta</h1>
-<h2 id="title2">Angehende Fachinformatikerin für Systemintegration_</h2>
-<p id="desc">Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.</p>
+<h2 id="title2">
+Angehende Fachinformatikerin<span class="cursor">_</span>
+</h2>
 
 <div class="buttons">
-<a href="#contact" class="btn1" id="btn1">Kontakt aufnehmen</a>
-<a href="#projects" class="btn2" id="btn2">Projekte ansehen</a>
+<a href="#contact">Kontakt</a>
+<a href="#projects">Projekte</a>
 </div>
 </div>
 
-<div class="right">
-<div class="photo-placeholder">Dein Foto</div>
+<div class="photo">
+<img src="profile.jpg">
 </div>
 </section>
 
+<!-- SKILLS -->
+<section id="skills">
+<div class="skills-grid">
+
+<div>Systemintegration<br>Windows Server</div>
+<div>Netzwerk<br>DNS DHCP VPN</div>
+<div>Cloud<br>AWS M365</div>
+<div>HR<br>Workday</div>
+
+<div>
+<b id="progTitle">Programmierung</b><br>
+<span id="progText">PowerShell<br>Java Basics</span>
+</div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
 <section id="projects">
-<div class="box">
-<h3 id="projectTitle">Projekte</h3>
 
-<div class="project-grid">
-
-<!-- AWS PROJECT -->
+<!-- VPN -->
 <div class="project-card">
 <div>
-<h4 id="p3t">☁️ AWS Static Website Hosting</h4>
+<h4 id="p1t">OpenVPN</h4>
+<p id="p1d">VPN setup Linux VM</p>
+</div>
+<div class="diagram">
+<div class="node">User</div>
+<div class="node">VPN</div>
+<div class="node">Linux</div>
+</div>
+</div>
+
+<!-- FIREWALL -->
+<div class="project-card">
+<div>
+<h4 id="p2t">Firewall</h4>
+<p id="p2d">HTTP allowed / blocked others</p>
+</div>
+<div class="diagram">
+<div class="node">Client</div>
+<div class="node">Firewall</div>
+<div class="node">Internet</div>
+</div>
+</div>
+
+<!-- AWS -->
+<div class="project-card">
+<div>
+<h4 id="p3t">AWS Website</h4>
 <p id="p3d">
-• Statische Website auf Amazon S3 erstellt<br>
-• Bereitstellung über CloudFront (CDN)<br>
-• Monitoring mit CloudWatch eingerichtet<br>
-• Benachrichtigungen über SNS konfiguriert<br>
-• Fokus auf Sicherheit, Skalierbarkeit und Kostenoptimierung
+S3 + CloudFront + CloudWatch + SNS
 </p>
 </div>
 
 <div class="diagram">
-<div class="node">👤 User</div>
-<div class="arrow">⬇</div>
-<div class="vpn-box">🌐 CloudFront</div>
-<div class="arrow">⬇</div>
-<div class="node">🪣 S3</div>
-<div class="arrow">⬇</div>
-<div class="firewall-box">📊 CloudWatch</div>
+<div class="node">User</div>
+<div class="node">CloudFront</div>
+<div class="node">S3</div>
+<div class="node">CloudWatch</div>
 </div>
 </div>
 
-</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div>
+📞 01523...<br>
+✉️ mail<br>
+🔗 <a href="https://www.linkedin.com/in/sangeetadas2204" target="_blank">LinkedIn</a>
 </div>
 </section>
 
 <script>
 function setLanguage(lang){
-document.getElementById("languagePopup").style.display="none";
 
 if(lang==="en"){
-nav1.innerHTML="About";
-nav2.innerHTML="Skills";
-nav3.innerHTML="Projects";
-nav4.innerHTML="Hobbies";
-nav5.innerHTML="Contact";
-
 title1.innerHTML="Hi, I'm Sangeeta";
-title2.innerHTML="Aspiring IT Specialist in System Integration_";
+title2.innerHTML="Aspiring IT Specialist<span class='cursor'>_</span>";
 
-p3t.innerHTML="☁️ AWS Static Website Hosting";
-p3d.innerHTML="• Static website hosted on Amazon S3<br>• Delivered via CloudFront<br>• Monitoring with CloudWatch<br>• Alerts via SNS<br>• Focus on security & scalability";
+progTitle.innerHTML="Programming";
+progText.innerHTML="PowerShell<br>Java Basics";
+
+p3t.innerHTML="AWS Website";
+p3d.innerHTML="Hosted on S3 + CloudFront + CloudWatch + SNS";
 }
 }
 </script>
