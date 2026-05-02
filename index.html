@@ -6,108 +6,250 @@
 <title>Sangeeta Portfolio</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial,sans-serif;background:#0f172a;color:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{font-family:Arial,sans-serif;background:#0f172a;color:#fff;overflow-x:hidden;}
 
-/* BLINK */
-.cursor{animation:blink 1s infinite;}
-@keyframes blink{50%{opacity:0;}}
+/* POPUP */
+#languagePopup{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:rgba(15,23,42,.96);
+display:flex;justify-content:center;align-items:center;z-index:99999;
+}
+.popup-box{
+background:#111827;padding:45px;border-radius:22px;text-align:center;
+width:90%;max-width:520px;border:1px solid rgba(147,197,253,.18);
+}
+.popup-box h2{font-size:30px;margin-bottom:15px;color:#93c5fd;}
+.popup-box p{font-size:18px;line-height:1.7;margin-bottom:28px;color:#d1d5db;}
+.popup-box button{
+padding:14px 28px;margin:10px;font-size:18px;border:none;border-radius:35px;
+cursor:pointer;font-weight:600;background:#2563eb;color:white;
+}
 
 /* NAV */
 nav{
 position:fixed;top:16px;left:18px;right:18px;
-padding:18px 35px;
-display:flex;justify-content:space-between;align-items:center;
-background:rgba(17,24,39,.7);
-border-radius:20px;
+padding:18px 35px;display:flex;justify-content:space-between;align-items:center;
+background:rgba(17,24,39,.72);backdrop-filter:blur(12px);
+border:1px solid rgba(148,163,184,.25);border-radius:24px;z-index:1000;
 }
-nav ul{display:flex;gap:25px;list-style:none;}
-nav a{color:white;text-decoration:none;}
+.logo{font-size:28px;font-weight:700;color:#93c5fd;}
+nav ul{display:flex;list-style:none;gap:28px;flex-wrap:wrap;}
+nav ul li a{text-decoration:none;color:white;font-size:17px;font-weight:600;}
 
-/* HERO FIX */
+/* HERO */
 .hero{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:150px 70px 60px;
-gap:60px;
-
-/* ❗ IMPORTANT FIX */
-flex-wrap:nowrap;
+min-height:100vh;display:flex;justify-content:space-between;align-items:center;
+padding:150px 70px 40px;gap:50px;flex-wrap:wrap;
+background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
 }
+.left{max-width:720px;}
+.left h1{font-size:56px;margin-bottom:16px;white-space:nowrap;}
+.left h2{font-size:28px;margin-bottom:20px;font-family:monospace;color:#93c5fd;}
+.left p{font-size:20px;line-height:1.7;color:#d1d5db;margin-bottom:32px;}
 
-.left{flex:1;}
-
-.right{
-flex:0 0 320px;
-display:flex;
-justify-content:center;
-}
-
-/* TEXT */
-.left h1{font-size:48px;}
-.left h2{font-size:24px;color:#93c5fd;margin:10px 0;}
-.left p{margin:20px 0;color:#d1d5db;}
-
-/* BUTTONS */
 .buttons a{
-padding:12px 25px;
-border-radius:30px;
-margin-right:10px;
-text-decoration:none;
-color:white;
+display:inline-block;padding:15px 30px;border-radius:40px;text-decoration:none;
+font-size:18px;font-weight:600;margin-right:14px;
 }
-.btn1{border:2px solid #2563eb;}
-.btn2{border:2px solid #64748b;}
+.btn1{border:2px solid #2563eb;color:white;}
+.btn2{border:2px solid #64748b;color:white;}
 
-/* IMAGE */
-.photo{
-width:300px;
-height:300px;
-border-radius:50%;
-object-fit:cover;
-border:3px solid #334155;
+.photo-placeholder{
+width:360px;height:360px;border-radius:50%;border:3px solid #334155;
+display:flex;justify-content:center;align-items:center;text-align:center;
+font-size:22px;color:#94a3b8;
 }
 
 /* SECTION */
-section{padding:80px 40px;}
+section{padding:100px 40px 60px;}
+
 .box{
-max-width:1100px;margin:auto;
-background:#111827;
-padding:30px;border-radius:20px;
+max-width:1150px;margin:auto;
+background:linear-gradient(145deg,#111827,#0f172a);
+padding:40px;border-radius:22px;
+border:1px solid rgba(147,197,253,.18);
+position:relative;
 }
+
+.box::before{
+content:"";position:absolute;top:0;left:0;width:100%;height:4px;
+background:linear-gradient(90deg,#2563eb,#93c5fd);
+border-radius:22px 22px 0 0;
+}
+
+.box h3{font-size:30px;margin-bottom:20px;color:#93c5fd;}
+.box p{font-size:18px;line-height:1.8;color:#d1d5db;}
 
 /* SKILLS */
 .skills-grid{
 display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:15px;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
 }
 
-/* PROJECT */
+.skill-card{
+background:#0f172a;
+padding:22px;
+border-radius:18px;
+border:1px solid rgba(147,197,253,.18);
+}
+
+.skill-card h4{
+font-size:18px;
+margin-bottom:12px;
+color:#93c5fd;
+}
+
+.skill-card p{
+font-size:15px;
+line-height:1.8;
+}
+
+/* PROJECTS */
+.project-intro{
+margin-bottom:28px;
+color:#cbd5e1;
+font-size:17px;
+line-height:1.8;
+}
+
+.project-grid{
+display:flex;
+flex-direction:column;
+gap:24px;
+}
+
 .project-card{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-margin-top:20px;
+grid-template-columns:1.1fr .9fr;
+gap:24px;
+background:#0f172a;
+padding:24px;
+border-radius:18px;
+border:1px solid rgba(147,197,253,.15);
 }
+
+.project-card h4{
+font-size:22px;
+margin-bottom:14px;
+color:#93c5fd;
+}
+
+.project-card p{
+font-size:16px;
+line-height:1.8;
+}
+
+.diagram{
+background:#111827;
+padding:22px;
+border-radius:18px;
+border:1px solid rgba(147,197,253,.15);
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+
+.node{
+background:#1e293b;
+padding:10px 16px;
+border-radius:12px;
+width:100%;
+text-align:center;
+font-weight:600;
+}
+
+.arrow{font-size:22px;color:#93c5fd;}
+
+.vpn-box,.firewall-box{
+background:#2563eb;
+padding:10px 16px;
+border-radius:12px;
+width:100%;
+text-align:center;
+font-weight:600;
+}
+
+.rule-list{
+width:100%;
+background:#0f172a;
+padding:12px;
+border-radius:12px;
+font-size:14px;
+line-height:1.8;
+}
+
+.small-note{font-size:14px;color:#cbd5e1;}
 
 /* HOBBIES */
 .hobby-list{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:10px;
+gap:18px;
 }
 
-/* MOBILE FIX */
-@media(max-width:900px){
+.hobby-item{
+background:#0f172a;
+padding:20px;
+border-radius:16px;
+text-align:center;
+border:1px solid rgba(147,197,253,.15);
+font-size:16px;
+color:#d1d5db;
+}
+
+/* CONTACT */
+.contact-item{
+display:flex;
+gap:12px;
+margin-bottom:15px;
+font-size:18px;
+color:#d1d5db;
+}
+
+.icon{color:#93c5fd;width:22px;}
+
+footer{text-align:center;padding:35px;color:#94a3b8;}
+
+/* MOBILE */
+@media(max-width:1100px){
+
+nav{flex-direction:column;gap:14px;padding:16px;}
+nav ul{justify-content:center;}
+
 .hero{
-flex-direction:column;
+padding:170px 20px 50px;
+justify-content:center;
 text-align:center;
 }
 
-.right{
-margin-top:30px;
+.left h1{
+font-size:42px;
+white-space:normal;
+}
+
+.left h2{font-size:24px;}
+
+.photo-placeholder{
+width:230px;
+height:230px;
+font-size:18px;
+}
+
+.skills-grid,.hobby-list{
+grid-template-columns:repeat(2,1fr);
+}
+
+.project-card{
+grid-template-columns:1fr;
+}
+}
+
+@media(max-width:700px){
+.skills-grid,.hobby-list{
+grid-template-columns:1fr;
 }
 }
 </style>
@@ -115,116 +257,243 @@ margin-top:30px;
 
 <body>
 
+<div id="languagePopup">
+<div class="popup-box">
+<h2>Willkommen / Welcome</h2>
+<p>
+In welcher Sprache möchten Sie die Website ansehen?<br>
+Which language would you like to view the website in?
+</p>
+<button onclick="setLanguage('de')">🇩🇪 Deutsch</button>
+<button onclick="setLanguage('en')">🇬🇧 English</button>
+</div>
+</div>
+
 <nav>
-<div>Sangeeta</div>
+<div class="logo">Sangeeta</div>
 <ul>
-<li><a href="#about">Über mich</a></li>
-<li><a href="#skills">Kenntnisse</a></li>
-<li><a href="#projects">Projekte</a></li>
-<li><a href="#hobbies">Hobbys</a></li>
-<li><a href="#contact">Kontakt</a></li>
+<li><a href="#about" id="nav1">Über mich</a></li>
+<li><a href="#skills" id="nav2">Kenntnisse</a></li>
+<li><a href="#projects" id="nav3">Projekte</a></li>
+<li><a href="#hobbies" id="nav4">Hobbys</a></li>
+<li><a href="#contact" id="nav5">Kontakt</a></li>
 </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-
 <div class="left">
-<h1>Hallo, ich bin Sangeeta</h1>
-<h2>
-Angehende Fachinformatikerin<span class="cursor">_</span>
-</h2>
-
-<p>Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.</p>
+<h1 id="title1">Hallo, ich bin Sangeeta</h1>
+<h2 id="title2">Angehende Fachinformatikerin für Systemintegration_</h2>
+<p id="desc">Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.</p>
 
 <div class="buttons">
-<a href="#contact" class="btn1">Kontakt</a>
-<a href="#projects" class="btn2">Projekte</a>
+<a href="#contact" class="btn1" id="btn1">Kontakt aufnehmen</a>
+<a href="#projects" class="btn2" id="btn2">Projekte ansehen</a>
 </div>
 </div>
 
 <div class="right">
-<img src="profile.jpg" class="photo">
+<div class="photo-placeholder" id="photoText">
+Dein Foto<br>kommt hier später
 </div>
-
+</div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
 <div class="box">
-<h3>Über mich</h3>
-<p>
-Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf.
-Mehr als 8 Jahre HR-Erfahrung mit Workday und Prozessoptimierung.
+<h3 id="aboutTitle">Über mich</h3>
+<p id="aboutText">
+Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.
 </p>
 </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
 <div class="box">
-<h3>Kenntnisse</h3>
+<h3 id="skillTitle">Kenntnisse</h3>
 
 <div class="skills-grid">
-<div>Systemintegration</div>
-<div>Netzwerk</div>
-<div>Cloud</div>
-<div>HR</div>
-<div>Programmierung<br>PowerShell Java</div>
+<div class="skill-card"><h4>💻 Systemintegration</h4><p>Windows Server<br>Active Directory<br>Benutzerverwaltung<br>IT Support</p></div>
+<div class="skill-card"><h4>🌐 Netzwerk</h4><p>TCP/IP<br>DNS<br>DHCP<br>VPN</p></div>
+<div class="skill-card"><h4>☁️ Cloud & Microsoft</h4><p>Microsoft 365<br>Azure Basics<br>AWS Basics<br>Exchange Online</p></div>
+<div class="skill-card"><h4>🧑‍💼 Business & HR</h4><p>Workday<br>Prozessoptimierung<br>Reporting<br>Stakeholder Management</p></div>
 </div>
 
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
 <div class="box">
-<h3>Projekte</h3>
+<h3 id="projectTitle">Projekte</h3>
+
+<p class="project-intro" id="projectIntro">
+Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und dokumentiert, um praktische Erfahrungen zu vertiefen.
+</p>
+
+<div class="project-grid">
 
 <div class="project-card">
-<div>OpenVPN Setup</div>
-<div>Diagram</div>
+<div>
+<h4 id="p1t">🔐 OpenVPN Konfiguration</h4>
+<p id="p1d">
+• OpenVPN auf Linux VM eingerichtet<br>
+• Verbindung zwischen Linux VM und Host-System aufgebaut<br>
+• Routing geprüft<br>
+• Verbindung getestet
+</p>
+</div>
+
+<div class="diagram">
+<div class="node">🖥 Windows Host</div>
+<div class="arrow">⬇</div>
+<div class="vpn-box">🔐 VPN Tunnel</div>
+<div class="arrow">⬇</div>
+<div class="node">🐧 Linux VM</div>
+<div class="small-note">OpenVPN Server</div>
+</div>
 </div>
 
 <div class="project-card">
-<div>Firewall Regeln</div>
-<div>Diagram</div>
+<div>
+<h4 id="p2t">🛡 Firewall Regelkonfiguration</h4>
+<p id="p2d">
+• Webseitenzugriff eingeschränkt<br>
+• HTTP erlaubt / andere blockiert<br>
+• Firewall Regeln erstellt<br>
+• Windows Client getestet
+</p>
 </div>
 
-<div class="project-card">
-<div>AWS Website (S3 + CloudFront)</div>
-<div>Diagram</div>
+<div class="diagram">
+<div class="node">💻 Windows Client</div>
+<div class="arrow">⬇</div>
+<div class="firewall-box">🛡 Firewall</div>
+<div class="rule-list">
+<div>✔ HTTP erlaubt</div>
+<div>✖ HTTPS blockiert</div>
+<div>✔ Zugriff kontrolliert</div>
+</div>
+<div class="arrow">⬇</div>
+<div class="node">🌐 Internet</div>
+</div>
 </div>
 
+</div>
 </div>
 </section>
 
-<!-- HOBBIES -->
 <section id="hobbies">
 <div class="box">
-<h3>Hobbys</h3>
+<h3 id="hobbyTitle">Hobbys</h3>
 
 <div class="hobby-list">
-<div>📈 Entwicklung</div>
-<div>📚 Lesen</div>
-<div>💃 Tanz</div>
-<div>🍲 Kochen</div>
+<div class="hobby-item" id="h1">📈 Persönliche Weiterentwicklung</div>
+<div class="hobby-item" id="h2">📚 Bücher lesen</div>
+<div class="hobby-item" id="h3">💃 Klassischer Tanz</div>
+<div class="hobby-item" id="h4">🍲 Internationale Rezepte lernen</div>
 </div>
 
 </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
 <div class="box">
-<h3>Kontakt</h3>
+<h3 id="contactTitle">Kontakt</h3>
 
-<div>☎ <a href="tel:+4915236734519">01523 6734519</a></div>
-<div>✉ sangeeta-das@gmx.de</div>
-<div>🔗 <a href="https://www.linkedin.com/in/sangeetadas2204">LinkedIn</a></div>
+<div class="contact-item"><span class="icon">☎</span>01523-6734519</div>
+<div class="contact-item"><span class="icon">✉</span>sangeeta-das@gmx.de</div>
+<div class="contact-item"><span class="icon">⌂</span>Düsseldorf</div>
 
 </div>
 </section>
+
+<footer>© 2026 Sangeeta Kumari Das</footer>
+
+<script>
+function setLanguage(lang){
+
+document.getElementById("languagePopup").style.display="none";
+
+if(lang==="en"){
+
+nav1.innerHTML="About";
+nav2.innerHTML="Skills";
+nav3.innerHTML="Projects";
+nav4.innerHTML="Hobbies";
+nav5.innerHTML="Contact";
+
+title1.innerHTML="Hi, I'm Sangeeta";
+title2.innerHTML="Aspiring IT Specialist in System Integration_";
+desc.innerHTML="Committed, reliable and motivated for continuous growth.";
+
+btn1.innerHTML="Get In Touch";
+btn2.innerHTML="View Projects";
+
+photoText.innerHTML="Your Photo<br>Coming Soon";
+
+aboutTitle.innerHTML="About";
+aboutText.innerHTML="Currently retraining as an IT Specialist in System Integration at BBQ Düsseldorf. In addition, I bring more than 8 years of HR experience, especially in process optimization and Workday. I now aim to apply my experience in the IT field.";
+
+skillTitle.innerHTML="Skills";
+
+projectTitle.innerHTML="Projects";
+projectIntro.innerHTML="The projects below were independently planned, implemented and documented to deepen my practical experience.";
+
+p1t.innerHTML="🔐 OpenVPN Configuration";
+p1d.innerHTML="• OpenVPN installed on Linux VM<br>• Connection established between Linux VM and Host system<br>• Routing checked<br>• Connection tested";
+
+p2t.innerHTML="🛡 Firewall Rule Configuration";
+p2d.innerHTML="• Website access restricted<br>• HTTP allowed / others blocked<br>• Firewall rules created<br>• Windows client tested";
+
+hobbyTitle.innerHTML="Hobbies";
+h1.innerHTML="📈 Personal Development";
+h2.innerHTML="📚 Reading Books";
+h3.innerHTML="💃 Classical Dance";
+h4.innerHTML="🍲 Learning International Recipes";
+
+contactTitle.innerHTML="Contact";
+
+}else{
+
+nav1.innerHTML="Über mich";
+nav2.innerHTML="Kenntnisse";
+nav3.innerHTML="Projekte";
+nav4.innerHTML="Hobbys";
+nav5.innerHTML="Kontakt";
+
+title1.innerHTML="Hallo, ich bin Sangeeta";
+title2.innerHTML="Angehende Fachinformatikerin für Systemintegration_";
+desc.innerHTML="Engagiert, zuverlässig und motiviert zur kontinuierlichen Weiterentwicklung.";
+
+btn1.innerHTML="Kontakt aufnehmen";
+btn2.innerHTML="Projekte ansehen";
+
+photoText.innerHTML="Dein Foto<br>kommt hier später";
+
+aboutTitle.innerHTML="Über mich";
+aboutText.innerHTML="Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.";
+
+skillTitle.innerHTML="Kenntnisse";
+
+projectTitle.innerHTML="Projekte";
+projectIntro.innerHTML="Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und dokumentiert, um praktische Erfahrungen zu vertiefen.";
+
+p1t.innerHTML="🔐 OpenVPN Konfiguration";
+p1d.innerHTML="• OpenVPN auf Linux VM eingerichtet<br>• Verbindung zwischen Linux VM und Host-System aufgebaut<br>• Routing geprüft<br>• Verbindung getestet";
+
+p2t.innerHTML="🛡 Firewall Regelkonfiguration";
+p2d.innerHTML="• Webseitenzugriff eingeschränkt<br>• HTTP erlaubt / andere blockiert<br>• Firewall Regeln erstellt<br>• Windows Client getestet";
+
+hobbyTitle.innerHTML="Hobbys";
+h1.innerHTML="📈 Persönliche Weiterentwicklung";
+h2.innerHTML="📚 Bücher lesen";
+h3.innerHTML="💃 Klassischer Tanz";
+h4.innerHTML="🍲 Internationale Rezepte lernen";
+
+contactTitle.innerHTML="Kontakt";
+}
+}
+</script>
 
 </body>
 </html>
