@@ -193,7 +193,7 @@ font-weight:600;
 
 .arrow{font-size:22px;color:#93c5fd;}
 
-.vpn-box,.firewall-box{
+.vpn-box,.firewall-box,.aws-box{
 background:#2563eb;
 padding:10px 16px;
 border-radius:12px;
@@ -211,7 +211,7 @@ font-size:14px;
 line-height:1.8;
 }
 
-.small-note{font-size:14px;color:#cbd5e1;}
+.small-note{font-size:14px;color:#cbd5e1;text-align:center;}
 
 /* HOBBIES */
 .hobby-list{
@@ -425,6 +425,29 @@ Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und d
 </div>
 </div>
 
+<div class="project-card">
+<div>
+<h4 id="p3t">☁️ AWS Statische Website mit Monitoring</h4>
+<p id="p3d">
+• Statische Website mit Amazon S3 gehostet<br>
+• CloudFront für schnelle Auslieferung genutzt<br>
+• CloudWatch Monitoring eingerichtet<br>
+• Alarm-Benachrichtigung per E-Mail getestet
+</p>
+</div>
+
+<div class="diagram">
+<div class="node">🌐 Website Besucher</div>
+<div class="arrow">⬇</div>
+<div class="aws-box">☁️ CloudFront</div>
+<div class="arrow">⬇</div>
+<div class="aws-box">🗂 Amazon S3 Website</div>
+<div class="arrow">⬇</div>
+<div class="node">📊 CloudWatch Monitoring</div>
+<div class="small-note">E-Mail Alarm bei Problemen</div>
+</div>
+</div>
+
 </div>
 </div>
 </section>
@@ -494,6 +517,9 @@ p1d.innerHTML="• OpenVPN installed on Linux VM<br>• Connection established b
 p2t.innerHTML="🛡 Firewall Rule Configuration";
 p2d.innerHTML="• Website access restricted<br>• HTTP allowed / others blocked<br>• Firewall rules created<br>• Windows client tested";
 
+p3t.innerHTML="☁️ AWS Static Website with Monitoring";
+p3d.innerHTML="• Static website hosted with Amazon S3<br>• CloudFront used for fast delivery<br>• CloudWatch monitoring configured<br>• Email alert tested for problems";
+
 hobbyTitle.innerHTML="Hobbies";
 h1.innerHTML="📈 Personal Development";
 h2.innerHTML="📚 Reading Books";
@@ -530,6 +556,9 @@ p1d.innerHTML="• OpenVPN auf Linux VM eingerichtet<br>• Verbindung zwischen 
 
 p2t.innerHTML="🛡 Firewall Regelkonfiguration";
 p2d.innerHTML="• Webseitenzugriff eingeschränkt<br>• HTTP erlaubt / andere blockiert<br>• Firewall Regeln erstellt<br>• Windows Client getestet";
+
+p3t.innerHTML="☁️ AWS Statische Website mit Monitoring";
+p3d.innerHTML="• Statische Website mit Amazon S3 gehostet<br>• CloudFront für schnelle Auslieferung genutzt<br>• CloudWatch Monitoring eingerichtet<br>• Alarm-Benachrichtigung per E-Mail getestet";
 
 hobbyTitle.innerHTML="Hobbys";
 h1.innerHTML="📈 Persönliche Weiterentwicklung";
