@@ -48,11 +48,7 @@ gap:40px;
 background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
 }
 
-.left{
-max-width:680px;
-flex:1;
-}
-
+.left{max-width:680px;flex:1;}
 .left h1{font-size:56px;margin-bottom:16px;white-space:nowrap;}
 .left h2{font-size:28px;margin-bottom:20px;font-family:monospace;color:#93c5fd;}
 .left p{font-size:20px;line-height:1.7;color:#d1d5db;margin-bottom:32px;}
@@ -61,7 +57,6 @@ flex:1;
 display:inline-block;
 animation:blink 0.8s infinite;
 }
-
 @keyframes blink{
 0%,50%{opacity:1;}
 51%,100%{opacity:0;}
@@ -69,9 +64,8 @@ animation:blink 0.8s infinite;
 
 .buttons a{
 display:inline-block;padding:15px 30px;border-radius:40px;text-decoration:none;
-font-size:18px;font-weight:600;margin-right:14px;
+font-size:18px;font-weight:600;margin-right:14px;margin-bottom:10px;
 }
-
 .btn1{border:2px solid #2563eb;color:white;}
 .btn2{border:2px solid #2563eb;color:white;}
 
@@ -81,7 +75,6 @@ justify-content:center;
 align-items:center;
 flex-shrink:0;
 }
-
 .profile-photo{
 width:320px;
 height:320px;
@@ -114,7 +107,7 @@ border-radius:22px 22px 0 0;
 /* SKILLS */
 .skills-grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 gap:20px;
 }
 
@@ -216,7 +209,7 @@ line-height:1.8;
 /* HOBBIES */
 .hobby-list{
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:18px;
 }
 
@@ -238,11 +231,13 @@ gap:12px;
 margin-bottom:15px;
 font-size:18px;
 color:#d1d5db;
+min-width:0;
 }
 
 .contact-item a{
 color:#d1d5db;
 text-decoration:none;
+white-space:nowrap;
 }
 
 .contact-item a:hover{
@@ -254,51 +249,111 @@ text-decoration:underline;
 color:#93c5fd;
 width:22px;
 display:inline-block;
+flex-shrink:0;
 }
 
 footer{text-align:center;padding:35px;color:#94a3b8;}
 
-/* MOBILE */
+/* TABLET */
 @media(max-width:1100px){
 
 nav{flex-direction:column;gap:14px;padding:16px;}
 nav ul{justify-content:center;}
 
 .hero{
-padding:170px 20px 50px;
+padding:170px 24px 50px;
 justify-content:center;
-text-align:center;
-flex-wrap:wrap;
+text-align:left;
+gap:24px;
 }
 
-.left{
-max-width:720px;
-}
+.left{max-width:60%;}
 
 .left h1{
-font-size:42px;
+font-size:36px;
 white-space:normal;
 }
 
-.left h2{font-size:24px;}
+.left h2{font-size:21px;}
+.left p{font-size:17px;}
 
-.profile-photo{
-width:230px;
-height:230px;
+.buttons a{
+font-size:15px;
+padding:12px 18px;
+margin-right:8px;
 }
 
-.skills-grid,.hobby-list{
-grid-template-columns:repeat(2,1fr);
+.profile-photo{
+width:170px;
+height:170px;
+}
+
+.project-card{
+grid-template-columns:1fr 1fr;
+}
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+nav{
+position:relative;
+top:0;
+left:0;
+right:0;
+border-radius:0;
+}
+
+nav ul{
+gap:14px;
+}
+
+.hero{
+padding:50px 18px 45px;
+gap:22px;
+flex-wrap:wrap;
+text-align:center;
+}
+
+.left{
+max-width:100%;
+}
+
+.left h1{
+font-size:34px;
+}
+
+.left h2{
+font-size:20px;
+}
+
+.left p{
+font-size:16px;
+}
+
+.profile-photo{
+width:210px;
+height:210px;
+}
+
+section{
+padding:70px 18px 40px;
+}
+
+.box{
+padding:28px 20px;
 }
 
 .project-card{
 grid-template-columns:1fr;
 }
+
+.contact-item{
+font-size:16px;
 }
 
-@media(max-width:700px){
-.skills-grid,.hobby-list{
-grid-template-columns:1fr;
+.contact-item a{
+font-size:16px;
 }
 }
 </style>
@@ -472,13 +527,10 @@ Die unten aufgeführten Projekte habe ich eigenständig geplant, umgesetzt und d
 <div class="box">
 <h3 id="contactTitle">Kontakt</h3>
 
-<div class="contact-item"><span class="icon">☎</span>01523-6734519</div>
-<div class="contact-item"><span class="icon">✉</span>sangeeta-das@gmx.de</div>
+<div class="contact-item"><span class="icon">☎</span><a href="tel:015236734519">01523-6734519</a></div>
+<div class="contact-item"><span class="icon">✉</span><a href="mailto:sangeeta-das@gmx.de">sangeeta-das@gmx.de</a></div>
 <div class="contact-item"><span class="icon">⌂</span>Düsseldorf</div>
-<div class="contact-item">
-<span class="icon">in</span>
-<a href="https://www.linkedin.com/in/sangeetadas2204/" target="_blank">LinkedIn</a>
-</div>
+<div class="contact-item"><span class="icon">in</span><a href="https://www.linkedin.com/in/sangeetadas2204/" target="_blank">LinkedIn</a></div>
 
 </div>
 </section>
