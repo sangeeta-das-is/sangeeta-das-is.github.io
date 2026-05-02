@@ -7,150 +7,102 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-
 body{background:#0f172a;color:white;}
 
-/* blinking cursor */
-.cursor{
-animation:blink 1s infinite;
-}
-@keyframes blink{
-0%{opacity:1;}
-50%{opacity:0;}
-100%{opacity:1;}
-}
+/* cursor */
+.cursor{animation:blink 1s infinite;}
+@keyframes blink{50%{opacity:0;}}
 
 /* popup */
 #languagePopup{
-position:fixed;
-width:100%;
-height:100%;
-background:#0f172a;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:999;
+position:fixed;width:100%;height:100%;
+background:#0f172a;display:flex;
+justify-content:center;align-items:center;z-index:999;
 }
-
 .popup-box{
-background:#111827;
-padding:40px;
-border-radius:20px;
-text-align:center;
+background:#111827;padding:40px;border-radius:20px;text-align:center;
 }
-
 button{
-padding:12px 25px;
-margin:10px;
-border:none;
-border-radius:30px;
-cursor:pointer;
-background:#2563eb;
-color:white;
+padding:12px 25px;margin:10px;border:none;border-radius:30px;
+background:#2563eb;color:white;cursor:pointer;
 }
 
 /* nav */
 nav{
-position:fixed;
-top:10px;
-left:10px;
-right:10px;
-display:flex;
-justify-content:space-between;
-padding:15px 25px;
-background:#111827;
-border-radius:20px;
+position:fixed;top:10px;left:10px;right:10px;
+display:flex;justify-content:space-between;
+padding:15px 25px;background:#111827;border-radius:20px;
 }
-
-nav ul{
-display:flex;
-gap:20px;
-list-style:none;
-}
-
+nav ul{display:flex;gap:20px;list-style:none;}
 nav a{color:white;text-decoration:none;}
 
 /* hero */
 .hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:140px 60px;
-flex-wrap:wrap;
+display:flex;align-items:center;justify-content:space-between;
+padding:140px 60px;flex-wrap:wrap;
 }
-
-.left{
-max-width:600px;
-}
-
-.left h1{
-font-size:42px;
-margin-bottom:10px;
-}
-
-.left h2{
-font-size:24px;
-color:#93c5fd;
-margin-bottom:20px;
-}
+.left{max-width:600px;}
+.left h1{font-size:42px;margin-bottom:10px;}
+.left h2{font-size:24px;color:#93c5fd;margin-bottom:20px;}
 
 .buttons a{
-padding:12px 25px;
-border-radius:30px;
-border:2px solid #2563eb;
-margin-right:10px;
-text-decoration:none;
-color:white;
+padding:12px 25px;border-radius:30px;border:2px solid #2563eb;
+margin-right:10px;text-decoration:none;color:white;
 }
 
 /* photo */
 .photo img{
-width:280px;
-height:280px;
-border-radius:50%;
-object-fit:cover;
-border:3px solid #334155;
+width:280px;height:280px;border-radius:50%;
+object-fit:cover;border:3px solid #334155;
 }
 
 /* sections */
 section{padding:80px 40px;}
-
 .box{
-background:#111827;
-padding:30px;
-border-radius:20px;
+background:#111827;padding:30px;border-radius:20px;
 }
 
 /* skills */
 .skills{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:15px;
+display:grid;grid-template-columns:repeat(5,1fr);gap:15px;
+}
+.skill{
+background:#0f172a;padding:15px;border-radius:15px;
 }
 
-.skill{
-background:#0f172a;
-padding:15px;
-border-radius:15px;
+/* projects */
+.project-card{
+display:grid;grid-template-columns:1fr 1fr;
+gap:20px;background:#0f172a;padding:20px;border-radius:15px;margin-top:20px;
 }
+
+.diagram{
+background:#111827;padding:15px;border-radius:15px;
+display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+
+.node{background:#1e293b;padding:8px 12px;border-radius:10px;width:100%;text-align:center;}
+.arrow{color:#93c5fd;}
+.vpn-box,.firewall-box{
+background:#2563eb;padding:8px;border-radius:10px;width:100%;text-align:center;
+}
+.small-note{font-size:12px;color:#cbd5e1;}
 
 /* contact */
-.contact-item{
-margin-bottom:12px;
-}
+.contact-item{margin-bottom:10px;}
 
 /* mobile */
 @media(max-width:900px){
 .hero{flex-direction:column;text-align:center;}
 .skills{grid-template-columns:1fr;}
-.photo img{width:200px;height:200px;}
+.project-card{grid-template-columns:1fr;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- LANGUAGE POPUP -->
+<!-- popup -->
 <div id="languagePopup">
 <div class="popup-box">
 <h2>Willkommen / Welcome</h2>
@@ -160,7 +112,7 @@ margin-bottom:12px;
 </div>
 </div>
 
-<!-- NAV -->
+<!-- nav -->
 <nav>
 <div>Sangeeta</div>
 <ul>
@@ -171,7 +123,7 @@ margin-bottom:12px;
 </ul>
 </nav>
 
-<!-- HERO -->
+<!-- hero -->
 <section class="hero">
 <div class="left">
 <h1 id="title1">Hallo, ich bin Sangeeta</h1>
@@ -187,23 +139,21 @@ Angehende Fachinformatikerin für Systemintegration<span class="cursor">_</span>
 </div>
 
 <div class="photo">
-<img src="profile.jpg" alt="profile">
+<img src="profile.jpg">
 </div>
 </section>
 
-<!-- ABOUT -->
+<!-- about -->
 <section id="about">
 <div class="box">
 <h3 id="aboutTitle">Über mich</h3>
-
 <p id="aboutText">
 Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegration bei BBQ Düsseldorf. Darüber hinaus bringe ich mehr als 8 Jahre Berufserfahrung im HR-Bereich mit, besonders in Prozessoptimierung und Workday. Nun möchte ich meine Erfahrung gezielt im IT-Bereich einbringen.
 </p>
-
 </div>
 </section>
 
-<!-- SKILLS -->
+<!-- skills -->
 <section id="skills">
 <div class="box">
 <h3 id="skillTitle">Kenntnisse</h3>
@@ -222,27 +172,50 @@ Aktuell absolviere ich eine Umschulung zur Fachinformatikerin für Systemintegra
 </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- projects -->
 <section id="projects">
 <div class="box">
 <h3 id="projectTitle">Projekte</h3>
-<p id="projectIntro">Selbstständig geplant und umgesetzt.</p>
+
+<div class="project-card">
+
+<div>
+<h4 id="awsTitle">☁️ AWS Static Website Hosting</h4>
+<p id="awsText">
+• Statische Website auf Amazon S3 erstellt<br>
+• Bereitstellung über CloudFront<br>
+• Monitoring mit CloudWatch<br>
+• SNS Alerts konfiguriert<br>
+• Fokus auf Sicherheit & Skalierung
+</p>
+</div>
+
+<div class="diagram">
+<div class="node">👤 User</div>
+<div class="arrow">⬇</div>
+<div class="vpn-box">🌐 CloudFront</div>
+<div class="arrow">⬇</div>
+<div class="node">🪣 S3 Bucket</div>
+<div class="small-note">Static Website</div>
+<div class="arrow">⬇</div>
+<div class="firewall-box">📊 CloudWatch</div>
+<div class="small-note">Monitoring (SNS)</div>
+</div>
+
+</div>
+
 </div>
 </section>
 
-<!-- CONTACT -->
+<!-- contact -->
 <section id="contact">
 <div class="box">
 <h3 id="contactTitle">Kontakt</h3>
-
 <div class="contact-item">📞 01523-6734519</div>
 <div class="contact-item">✉ sangeeta-das@gmx.de</div>
 <div class="contact-item">
-🔗 <a href="https://www.linkedin.com/in/sangeetadas2204" target="_blank" style="color:#93c5fd;">
-LinkedIn Profil
-</a>
+🔗 <a href="https://www.linkedin.com/in/sangeetadas2204" target="_blank">LinkedIn</a>
 </div>
-
 </div>
 </section>
 
@@ -252,29 +225,27 @@ function setLanguage(lang){
 document.getElementById("languagePopup").style.display="none";
 
 if(lang==="en"){
-
 nav1.innerHTML="About";
 nav2.innerHTML="Skills";
 nav3.innerHTML="Projects";
 nav4.innerHTML="Contact";
 
 title1.innerHTML="Hi, I'm Sangeeta";
-
-title2.innerHTML="Aspiring IT Specialist in System Integration<span class='cursor'>_</span>";
+title2.innerHTML="Aspiring IT Specialist<span class='cursor'>_</span>";
 
 btn1.innerHTML="Get in touch";
 btn2.innerHTML="View projects";
 
 aboutTitle.innerHTML="About";
-aboutText.innerHTML="Currently retraining as an IT Specialist in System Integration at BBQ Düsseldorf. I bring over 8 years of HR experience with strong focus on process optimization and Workday. Now I aim to apply my experience in IT.";
+aboutText.innerHTML="Currently retraining as IT Specialist in System Integration at BBQ Düsseldorf. 8+ years HR experience.";
 
 skillTitle.innerHTML="Skills";
-
 progTitle.innerHTML="Programming";
 progText.innerHTML="PowerShell<br>Java (Basics)";
 
 projectTitle.innerHTML="Projects";
-projectIntro.innerHTML="Self-planned and implemented projects.";
+awsTitle.innerHTML="☁️ AWS Static Website";
+awsText.innerHTML="• Hosted on Amazon S3<br>• Delivered via CloudFront<br>• Monitoring with CloudWatch<br>• SNS alerts<br>• Focus on security & scalability";
 
 contactTitle.innerHTML="Contact";
 }
